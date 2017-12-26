@@ -4,3 +4,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* GENERAL */
+body {
+  background: #343434;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+/* FULL WEBSITE */
+.full-website {
+  width: 100%;
+  background: #343434;
+}
