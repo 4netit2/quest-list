@@ -266,6 +266,17 @@ button:hover {
 }
 
 
+/* RESPONSIVE < 1024 PX MEDIUM */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+@media screen and (max-width: 1024px) {
+  /* FULL WEBSITE CHARACTER */
+  .content-character {
+    width: 90%;
+  }
+}
+
+
 /* RESPONSIVE < 480 PX MOBILE */
 /* ---------------------------------------- */
 /* ---------------------------------------- */
@@ -274,5 +285,28 @@ button:hover {
   /* CONTENT SIGN */
   .content-sign {
     padding: 60px 5%;
+  }
+
+  /* FULL WEBSITE CHARACTER */
+  .content-character {
+    width: 98%;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  .avatar-choice {
+    order: 2;
+  }
+
+  .avatar-choice,
+  .class-choice {
+    flex-direction: row;
+    padding: 20px 0 0 0;
+    border-top: 6px solid #93928e;
+  }
+
+  .character-creation-btns {
+    display: flex;
+    justify-content: space-between;
   }
 }
