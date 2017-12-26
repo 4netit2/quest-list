@@ -17,7 +17,9 @@ a {
   text-decoration: none;
 }
 
-/* FULL WEBSITE */
+/* FULL WEBSITE SIGN */
+/* SIGN UP */
+/* ---------------------------------------- */
 .full-website-sign {
   width: 100%;
   background: #343434;
@@ -114,6 +116,32 @@ a {
   color: #e5af29;
 }
 
+/* SIGN IN */
+/* ---------------------------------------- */
+.tabs-sign-in {
+  display: flex;
+  border-bottom: 3px solid #93928e;
+}
+
+.tabs-sign-in .sign-up-title {
+  border-right: 3px solid #93928e;
+}
+
+.tabs-sign-in .sign-in-title {
+  background: #5d1111;
+}
+
+.tabs-sign-in .sign-in-title a {
+  color: #e5af29;
+}
+
+.tabs-sign-in .sign-up-title a:hover {
+  color: #e5af29;
+}
+
+.tabs-sign-in .sign-in-title a:hover {
+  color: #fff;
+}
 
 /* RESPONSIVE < 480 PX MOBILE */
 @media screen and (max-width: 480px) {
