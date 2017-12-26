@@ -94,12 +94,10 @@ a {
 
 .content-sign {
   padding: 60px 15%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .sign-btn {
+  display: block;
   color: #fff;
   background: #5d1111;
   border: 3px solid #93928e;
@@ -107,11 +105,21 @@ a {
   padding: 8px 15px;
   text-transform: uppercase;
   font-size: 1.5em;
-  margin: 30px 0 0 0;
+  margin: 30px auto 0 auto;
   font-weight: 800;
 }
 
 .sign-btn:hover {
   cursor: pointer;
   color: #e5af29;
+}
+
+
+/* RESPONSIVE < 480 PX MOBILE */
+@media screen and (max-width: 480px) {
+  /* FULL WEBSITE SIGN */
+  /* CONTENT SIGN */
+  .content-sign {
+    padding: 60px 5%;
+  }
 }
