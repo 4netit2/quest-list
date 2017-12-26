@@ -17,6 +17,27 @@ a {
   text-decoration: none;
 }
 
+/* MAIN NAV BAR */
+.main-nav {
+  display: flex;
+  background: #292a25;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  color: #fff;
+  border: 3px solid #97928e;
+  border-radius: 5px;
+  padding: 10px 2%;
+}
+
+.menu-icon a {
+  font-size: 2em;
+}
+
+.menu-icon a:hover {
+  color: #e5af29;
+}
+
 /* FULL WEBSITE SIGN */
 /* SIGN UP */
 /* ---------------------------------------- */
@@ -144,6 +165,8 @@ a {
 }
 
 /* RESPONSIVE < 480 PX MOBILE */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
 @media screen and (max-width: 480px) {
   /* FULL WEBSITE SIGN */
   /* CONTENT SIGN */
