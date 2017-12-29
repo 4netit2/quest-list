@@ -54,7 +54,8 @@ a {
 }
 
 .avatar-item:hover,
-.class-item:hover {
+.class-item:hover, 
+.quest-category-item:hover{
     cursor: pointer;
     border-color: #e5af29;
 }
@@ -357,12 +358,13 @@ button:hover {
 .completed-quests {
     display: flex;
     justify-content: space-around;
-    margin: 30px 0;
+    margin-bottom: 15px;
+    padding-top: 15px;
     text-transform: uppercase;
 }
 
 .completed-quests-number {
-    font-size: 1.2em;
+    font-size: 1em;
     background: #2a2927;
     color: #fff;
     border: 3px solid #93928e;
@@ -375,7 +377,7 @@ button:hover {
     border-radius: 5px;
     padding: 8px 15px;
     text-transform: uppercase;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 800;
     background: #5d1111;
     color: #e5af29;
@@ -422,7 +424,7 @@ button:hover {
     border-radius: 50%;
     margin: auto 7px;
     text-align: center;
-    color:#fff;
+    color: #e5af29;;
     font-size: 1.4em;
 }
 
@@ -431,8 +433,7 @@ button:hover {
     border-radius: 5px;
     padding: 8px 15px;
     text-transform: uppercase;
-    font-weight: 800;
-    background: #5d1111;
+    background: #4D2D20;
     color: #e5af29;
     width:100%;
     display:flex;
@@ -451,6 +452,10 @@ button:hover {
 .content-quest-xp{
     font-size: 1em;
     align-self: flex-end;
+    text-transform: uppercase;
+    font-weight: 800;
+    color:#e5af29;
+    align-self:center;
 }
 
 .content-quest-done{
@@ -464,6 +469,215 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ADD QUEST PAGE */
+/* ---------------------------------------- */
+
+.content-add-quest-page{
+    position: fixed;
+    position: absolute;
+    background: #343434;
+    width:100%;
+    height:100%;
+    z-index:3;
+    top:0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden{
+    display:none;
+}
+
+.popup-close-button{
+    width: 50px;
+    height: 50px;
+    border: 3px solid #93928e;
+    border-radius: 50%;
+    background: #5d1111;
+    color: #e5af29;
+    text-align: center;
+    font-size: 2.4em;
+    align-self: flex-end;
+    margin: 10px;
+}
+
+.add-quest-input-group{
+    width: 90%;
+    background: #4D2D20;
+    align-self: center;
+    height: 80px;
+    border:1px solid #93928e;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    margin-top:15px;
+}
+
+.choose-category-quest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fa-sort-down{
+    font-size: 2em;
+    margin-top: -14px;
+    color: #97928e;
+}
+
+.add-quest-content-default-group{
+    width: 90%;
+    background: #4D2D20;
+    align-self: center;
+    height: 60px;
+    border:1px solid #93928e;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    margin-top:15px;
+}
+
+.add-quest-input-group input{
+    height: 45px;
+    width:100%;
+}
+
+.add-quest-input-group form{
+    height: 45px;
+    width: 65%;
+}
+
+.confirm-add-quest a{
+    color:#008000;
+    font-size: 1.6em;
+}
+
+.confirm-add-quest-disable a{
+    color:#343434;
+    font-size: 1.6em;
+}
+
+.content-default-quest{
+    text-transform: uppercase; 
+    font-size: 1.2em;
+    color:#fff;
+    align-self: center;
+    width:65%;
+    padding-left: 10px;
+}
+
+.content-default-quest-disable{
+    text-transform: uppercase; 
+    font-size: 1.2em;
+    color:#93928e;
+    align-self: center;
+    width:65%;
+    padding-left: 10px;
+}
+
+.content-quest-xp-disable{
+    color:#93928e;
+    font-size: 1em;
+    align-self: flex-end;
+    text-transform: uppercase;
+    font-weight: 800;
+    align-self:center;
+}
+
+/* MENU PAGE */
+/* ---------------------------------------- */
+
+.content-menu-page{
+    position: fixed;
+    position: absolute;
+    background: #343434;
+    width:100%;
+    height:100%;
+    z-index:4;
+    top:0;
+}
+
+.menu-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.menu-content{
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    background: #292a25;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    border: 3px solid #97928e;
+    border-radius: 5px;
+    padding: 10px 2%;
+    margin: 10px auto;
+    height: 100%;
+}
+
+.menu-content .avatar-portrait{
+    margin-bottom: 10px;
+    
+}
+
+.user-level{
+    text-align: center;
+    margin: 20px auto;
+    font-size: 1.3em;
+}
+
+.user-xp-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.user-xp-bar-placeholder{
+    width:70%;
+    height: 20px;
+    background-color: forestgreen;
+    margin-left: -50px;
+    border: 3px solid #93928e;
+    border-radius: 5px;
+}
+
+.change-user-elements{
+    margin: 40px auto;
+    text-align: center;
+}
+
+.change-user-elements div{
+    margin-bottom:40px;
+    font-size: 1.3em;
+}
+
+.lougout-btn {
+    color: #93928e;
+    background: #292a25;
+    border: 3px solid #93928e;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    font-size: 1em;
+    width: 30%;
+    margin: auto;
+}
+
+.lougout-btn:hover {
+    cursor: pointer;
+    color: #5d1111;
 }
 
 /* RESPONSIVE < 1024 PX MEDIUM */
