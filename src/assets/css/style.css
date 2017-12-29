@@ -281,6 +281,14 @@ button:hover {
   text-align: center;
 }
 
+.class-choice h2 {
+  margin-bottom: 7px;
+}
+
+.class-choice .class-item {
+  margin: 10px 0;
+}
+
 .avatar-portrait {
     margin: 20px auto 40px auto;
 }
@@ -293,8 +301,9 @@ button:hover {
 .class-choice {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .avatar-choice {
