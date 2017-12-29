@@ -133,28 +133,28 @@
                 </div>
             </div> <!-- END of .quest-category-group -->
       </div> <!-- END CONTENT MAIN PAGE -->
-      
+
     <!-- CONTENT ADD QUEST PAGE, remove just .hidden to make it visible-->
-    <div class="content-add-quest-page hidden">
+    <div class="content-add-quest-page" id="content-add-quest-page">
         <div class="popup-close-button">&#10005;</div>
         <div class="add-quest-input-group">
             <form action="">
               <input type="text" id="quest-user-input" placeholder="ENTER YOUR QUEST">
             </form>
             <div class="choose-category-quest">
-                <div class="quest-category-item"></div>
-                <div class="fas fa-sort-down"></div> 
+                <div class="quest-category-item" id="add-quest-category"></div>
+                <div class="fas fa-sort-down"></div>
             </div>
             <div class="content-quest-xp">50 xp</div>
-            <div class="confirm-add-quest"><a href="">&#10004;</a></div>
+            <div class="confirm-add-quest" id="confirm-add-quest"><a href="">&#10004;</a></div>
         </div>
-        <!-- When a quest is activate, 
+        <!-- When a quest is activate,
         change .content-default-quest-disable by .content-default-quest
         change .content-quest-xp-disable by .content-quest-xp
         change . confirm-add-quest-disable by .confirm-add-quest
         and it needs to be a cross signe while disable instead of the tick
         -->
-        <div class="add-quest-content-default-group">
+        <div class="add-quest-content-default-group" id="first-default-quest">
             <div class="content-default-quest-disable">content default quest</div>
             <div class="quest-category-item"></div>
             <div class="content-quest-xp-disable">50 xp</div>
@@ -209,7 +209,7 @@
             <div class="confirm-add-quest-disable"><a href="">&#10004;</a></div>
         </div>
     </div> <!-- END CONTENT ADD QUEST PAGE -->
-    
+
     <!-- CONTENT MENU PAGE, remove just .hidden to make it visible-->
     <div class="content-menu-page hidden">
        <div class="menu-header">
@@ -222,7 +222,7 @@
        <div class="menu-content">
           <div class="avatar-portrait">
               <img src="assets/images/avatars/todo_ape.png" alt="Avatar" id="main-avatar">
-          </div> 
+          </div>
           <div class="user-level">level</div>
           <div class="user-xp-group">
               <div class="user-xp-text">xp</div>
@@ -235,9 +235,9 @@
           </div>
           <button class="lougout-btn">logout</button>
        </div>
-       
+
     </div> <!-- END CONTENT MENU PAGE -->
-   
+
     </div> <!-- END FULL WEBSITE MAIN PAGE -->
 
   <!-- Link to the main script -->
