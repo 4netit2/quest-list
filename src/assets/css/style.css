@@ -44,7 +44,6 @@ a {
 /* ICONS */
 
 .avatar-item,
-.gender-item,
 .class-item,
 .quest-category-item{
     height: 45px;
@@ -55,9 +54,9 @@ a {
 }
 
 .avatar-item:hover,
-.gender-item:hover,
 .class-item:hover {
     cursor: pointer;
+    border-color: #e5af29;
 }
 
 .avatar-portrait {
@@ -87,6 +86,61 @@ input:focus {
 button:hover {
     cursor: pointer;
 }
+
+/* AVATARS */
+#avatar-ape {
+  background: url('../images/avatars/todo_apef_45X45.png')
+}
+
+#avatar-dragon {
+  background: url('../images/avatars/todo_dragonf_45X45.png')
+}
+
+#avatar-elf-f {
+  background: url('../images/avatars/todo_f_elff_45X45.png')
+}
+
+#avatar-human-f {
+  background: url('../images/avatars/todo_f_humanf_45X45.png')
+}
+
+#avatar-orc-f {
+  background: url('../images/avatars/todo_f_orcf_45X45.png')
+}
+
+#avatar-elf-m {
+  background: url('../images/avatars/todo_m_elf_45X45.png')
+}
+
+#avatar-human-m {
+  background: url('../images/avatars/todo_m_humanf_45X45.png')
+}
+
+#avatar-orc-m {
+  background: url('../images/avatars/todo_m_orcf_45X45.png')
+}
+
+#avatar-panda {
+  background: url('../images/avatars/todo_pandaf_45X45.png')
+}
+
+#avatar-unicorn {
+  background: url('../images/avatars/todo_unicornf_45X45.png')
+}
+
+/* CLASSES */
+#class-mage {
+  background: url('../images/classes/mage_45x45.png')
+}
+
+#class-rogue {
+  background: url('../images/classes/rogue_45x45.png')
+}
+
+#class-warrior {
+  background: url('../images/classes/warrior_45x45.png')
+}
+
 
 /* FULL WEBSITE SIGN */
 /* SIGN UP */
@@ -221,9 +275,10 @@ button:hover {
     text-shadow: 2px 2px #000;
 }
 
-.gender-icons {
-    display: flex;
-    justify-content: space-around;
+.content-character h2 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .avatar-portrait {
@@ -235,12 +290,23 @@ button:hover {
     height: 100%;
 }
 
-.avatar-choice,
 .class-choice {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 60px 0 0 0;
+    flex-wrap: wrap;
+}
+
+.avatar-choice {
+  display: flex;
+  width: 100px;
+  align-items: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content-character .avatar-item {
+  width: 45px;
 }
 
 .pseudo-user input {
@@ -282,7 +348,7 @@ button:hover {
 .completed-quests {
     display: flex;
     justify-content: space-around;
-    margin: 30px 0; 
+    margin: 30px 0;
     text-transform: uppercase;
 }
 
@@ -403,6 +469,26 @@ button:hover {
 }
 
 
+/* RESPONSIVE < 767 PX TABLETS */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+@media screen and (max-width: 767px) {
+  /* FULL WEBSITE CHARACTER */
+  .content-character {
+      width: 98%;
+  }
+
+  .character-creation-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .character-creation-btns button {
+    margin: 5px 0;
+  }
+}
+
 /* RESPONSIVE < 480 PX MOBILE */
 /* ---------------------------------------- */
 /* ---------------------------------------- */
@@ -422,18 +508,27 @@ button:hover {
     }
 
     .avatar-choice {
-        order: 2;
+      width: 100%;
+      order: 2;
     }
 
     .avatar-choice,
     .class-choice {
         flex-direction: row;
-        padding: 20px 0 0 0;
+        padding: 20px 0;
         border-top: 6px solid #93928e;
+    }
+
+    .content-character .avatar-item {
+      margin: 5px;
     }
 
     .character-creation-btns {
         display: flex;
         justify-content: space-between;
+    }
+
+    .character-creation-btns .character-btn-create {
+      margin-bottom: 20px;
     }
 }
