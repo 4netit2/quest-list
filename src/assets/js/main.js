@@ -100,15 +100,9 @@ let questManagement = {
     const CONFIRM_ADD_QUEST = document.getElementById('confirm-add-quest');
     const QUEST_USER_INPUT = document.getElementById('quest-user-input');
 
-    quests.questCategory = 'category-fun';
-    
-    QUEST_USER_INPUT.addEventListener('input', function() {
-      quests.questContent = this.value;
-      quests.debugQuest();
-    });
-
     CONFIRM_ADD_QUEST.addEventListener('click', function(event) {
       // debugger;
+      quests.questContent = QUEST_USER_INPUT.value;
       let questElement = document.createElement('div');
       let questElementContent = document.createElement('div');
       let questElementCategory = document.createElement('div');
@@ -122,7 +116,7 @@ let questManagement = {
       questElementCategory.className = 'quest-category-item ' + quests.questCategory;
       questElementXP.className = 'content-quest-xp';
       questElementXP.textContent = '50xp';
-      questElementAdd.className = 'confirm-add-quest';
+      questElementAdd.className = 'confirm-add-quest custom-quest';
       questElementAddIcon.className= 'fas fa-check';
       questElementAdd.appendChild(questElementAddIcon);
 
@@ -137,7 +131,7 @@ let questManagement = {
       event.preventDefault();
     });
   },
-  addDefaultQuest: function() {
+  manageDefaultQuest: function() {
     let defaultQuestRemove = document.createElement('i');
     let defaultQuestAdd = document.createElement('i');
 
@@ -153,6 +147,7 @@ let questManagement = {
         DEFAULT_QUEST_COURSE.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -165,6 +160,7 @@ let questManagement = {
         quests.questCategory = 'category-course';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -180,6 +176,7 @@ let questManagement = {
         DEFAULT_QUEST_SLACK.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_SLACK_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -192,6 +189,7 @@ let questManagement = {
         quests.questCategory = 'category-slack';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -207,6 +205,7 @@ let questManagement = {
         DEFAULT_QUEST_FORUM.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_FORUM_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -219,6 +218,7 @@ let questManagement = {
         quests.questCategory = 'category-forum';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -234,6 +234,7 @@ let questManagement = {
         DEFAULT_QUEST_PROJECT.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_PROJECT_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -246,6 +247,7 @@ let questManagement = {
         quests.questCategory = 'category-project';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -261,6 +263,7 @@ let questManagement = {
         DEFAULT_QUEST_CHALLENGE.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_CHALLENGE_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -273,6 +276,7 @@ let questManagement = {
         quests.questCategory = 'category-challenge';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -288,6 +292,7 @@ let questManagement = {
         DEFAULT_QUEST_PERSONAL.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_PERSONAL_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -300,6 +305,7 @@ let questManagement = {
         quests.questCategory = 'category-personal';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -315,6 +321,7 @@ let questManagement = {
         DEFAULT_QUEST_HEALTH.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_HEALTH_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -327,6 +334,7 @@ let questManagement = {
         quests.questCategory = 'category-health';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -342,6 +350,7 @@ let questManagement = {
         DEFAULT_QUEST_WORK.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_WORK_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -354,6 +363,7 @@ let questManagement = {
         quests.questCategory = 'category-work';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
 
@@ -369,6 +379,7 @@ let questManagement = {
         DEFAULT_QUEST_FUN.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+        quests.questCategory = 'category-fun';
       } else if (DEFAULT_FUN_ADD.className === 'confirm-add-quest') {
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
@@ -381,6 +392,7 @@ let questManagement = {
         quests.questCategory = 'category-fun';
         console.log(quests.questContent);
         questManagement.deleteQuest(quests.questContent);
+        quests.questCategory = 'category-fun';
       }
     });
   },
@@ -548,7 +560,7 @@ let questManagement = {
   }
 };
 
-questManagement.addDefaultQuest();
+questManagement.manageDefaultQuest();
 questManagement.addQuest();
 questManagement.changeQuestCategory();
 questManagement.defeatQuest();
