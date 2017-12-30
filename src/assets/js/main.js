@@ -246,6 +246,8 @@ let questManagement = {
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
           break;
         }
+        character.experience += 50;
+        character.debugObject();
       }
     });
   }
