@@ -13,6 +13,7 @@ const OVERLAY = document.getElementById('overlay');
 const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
 const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
 const CONTENT_MAIN_PAGE = document.getElementById('content-main-page');
+const H3_ELT = document.querySelector('h3');
 
 const QUESTS_GROUP_COURSE = document.getElementById('quests-group-course');
 const QUESTS_GROUP_SLACK = document.getElementById('quests-group-slack');
@@ -23,6 +24,9 @@ const QUESTS_GROUP_PERSONAL = document.getElementById('quests-group-personal');
 const QUESTS_GROUP_HEALTH = document.getElementById('quests-group-health');
 const QUESTS_GROUP_WORK = document.getElementById('quests-group-work');
 const QUESTS_GROUP_FUN = document.getElementById('quests-group-fun');
+
+let questsToDo = 0;
+let questsDefeated = 0;
 
 // Rename the menu bar and page with user pseudo
 H1_ELT_MENU_BAR.textContent = character.pseudo;
@@ -106,6 +110,8 @@ let questManagement = {
       questElement.appendChild(questElementXP);
       questElement.appendChild(questElementAdd);
 
+      questsToDo += 1;
+      H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
       questManagement.createQuest();
       quests.debugQuest();
       event.preventDefault();
@@ -247,6 +253,8 @@ let questManagement = {
           break;
         }
         character.experience += 50;
+        questsDefeated += 1;
+        H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
         character.debugObject();
       }
     });
