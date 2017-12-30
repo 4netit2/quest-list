@@ -1,6 +1,6 @@
 // Main object to represents the user
 let character = {
-  pseudo: 'My Pseudo',
+  pseudo: 'User Pseudo',
   avatar: '',
   class: '',
   level: 1,

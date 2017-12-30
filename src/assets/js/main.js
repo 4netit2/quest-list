@@ -10,6 +10,12 @@ const CHOOSE_CATEGORY_POPUP = document.getElementById('choose-category-popup');
 const ADD_QUEST_ITEM = document.getElementById('add-quest_item');
 const DEFAULT_QUEST_COURSE = document.getElementById('default-quest-course');
 const OVERLAY = document.getElementById('overlay');
+const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
+const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
+
+// Rename the menu bar and page with user pseudo
+H1_ELT_MENU_BAR.textContent = character.pseudo;
+H1_ELT_MENU_PAGE.textContent = character.pseudo;
 
 // Open add quest
 ADD_QUEST_BTN.addEventListener('click', function(event) {
