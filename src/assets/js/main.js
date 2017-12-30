@@ -14,15 +14,15 @@ const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
 const CONTENT_MAIN_PAGE = document.getElementById('content-main-page');
 const H3_ELT = document.querySelector('h3');
 
-const QUESTS_GROUP_COURSE = document.getElementById('quests-group-course');
-const QUESTS_GROUP_SLACK = document.getElementById('quests-group-slack');
-const QUESTS_GROUP_FORUM = document.getElementById('quests-group-forum');
-const QUESTS_GROUP_PROJECT = document.getElementById('quests-group-project');
-const QUESTS_GROUP_CHALLENGE = document.getElementById('quests-group-challenge');
-const QUESTS_GROUP_PERSONAL = document.getElementById('quests-group-personal');
-const QUESTS_GROUP_HEALTH = document.getElementById('quests-group-health');
-const QUESTS_GROUP_WORK = document.getElementById('quests-group-work');
-const QUESTS_GROUP_FUN = document.getElementById('quests-group-fun');
+const QUESTS_GROUP_COURSE = document.getElementById('category-course');
+const QUESTS_GROUP_SLACK = document.getElementById('category-slack');
+const QUESTS_GROUP_FORUM = document.getElementById('category-forum');
+const QUESTS_GROUP_PROJECT = document.getElementById('category-project');
+const QUESTS_GROUP_CHALLENGE = document.getElementById('category-challenge');
+const QUESTS_GROUP_PERSONAL = document.getElementById('category-personal');
+const QUESTS_GROUP_HEALTH = document.getElementById('category-health');
+const QUESTS_GROUP_WORK = document.getElementById('category-work');
+const QUESTS_GROUP_FUN = document.getElementById('category-fun');
 
 const DEFAULT_COURSE_ADD = document.getElementById('default-course-add');
 const DEFAULT_SLACK_ADD = document.getElementById('default-slack-add');
@@ -137,6 +137,7 @@ let questManagement = {
   },
   addDefaultQuest: function() {
     let defaultQuestRemove = document.createElement('i');
+    let defaultQuestAdd = document.createElement('i');
 
     DEFAULT_COURSE_ADD.addEventListener('click', function(event) {
       if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest-disable') {
@@ -150,6 +151,18 @@ let questManagement = {
         DEFAULT_QUEST_COURSE.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_COURSE_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_COURSE.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_COURSE.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Finish a Udacity lesson';
+        quests.questCategory = 'category-course';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -165,6 +178,18 @@ let questManagement = {
         DEFAULT_QUEST_SLACK.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_SLACK_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_SLACK_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_SLACK.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_SLACK.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Participate on a Udacity Slack Channel';
+        quests.questCategory = 'category-slack';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -180,6 +205,18 @@ let questManagement = {
         DEFAULT_QUEST_FORUM.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_FORUM_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_FORUM_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_FORUM.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_FORUM.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Help a fellow student on the Forum';
+        quests.questCategory = 'category-forum';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -195,6 +232,18 @@ let questManagement = {
         DEFAULT_QUEST_PROJECT.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_PROJECT_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_PROJECT_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_PROJECT.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_PROJECT.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Add one feature on a side project';
+        quests.questCategory = 'category-project';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -210,6 +259,18 @@ let questManagement = {
         DEFAULT_QUEST_CHALLENGE.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_CHALLENGE_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_CHALLENGE_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_CHALLENGE.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_CHALLENGE.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Complete a Code Challenge';
+        quests.questCategory = 'category-challenge';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -225,6 +286,18 @@ let questManagement = {
         DEFAULT_QUEST_PERSONAL.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_PERSONAL_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_PERSONAL_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_PERSONAL.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_PERSONAL.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Take time for myself';
+        quests.questCategory = 'category-personal';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -240,6 +313,18 @@ let questManagement = {
         DEFAULT_QUEST_HEALTH.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_HEALTH_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_HEALTH_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_HEALTH.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_HEALTH.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Go for a walk or any activity far from the computer';
+        quests.questCategory = 'category-health';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -255,6 +340,18 @@ let questManagement = {
         DEFAULT_QUEST_WORK.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_WORK_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_WORK_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_WORK.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_WORK.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Do my best at work';
+        quests.questCategory = 'category-work';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
 
@@ -270,6 +367,18 @@ let questManagement = {
         DEFAULT_QUEST_FUN.children[2].className = 'content-quest-xp';
 
         questManagement.createQuest();
+      } else if (DEFAULT_FUN_ADD.className === 'confirm-add-quest') {
+        this.children[0].remove();
+        this.appendChild(defaultQuestAdd);
+        defaultQuestAdd.className = 'fas fa-plus';
+        DEFAULT_FUN_ADD.className = 'confirm-add-quest-disable';
+        DEFAULT_QUEST_FUN.children[0].className = 'content-default-quest-disable';
+        DEFAULT_QUEST_FUN.children[2].className = 'content-quest-xp-disable';
+
+        quests.questContent = 'Take some fun time with friends of family';
+        quests.questCategory = 'category-fun';
+        console.log(quests.questContent);
+        questManagement.deleteQuest(quests.questContent);
       }
     });
   },
@@ -329,7 +438,7 @@ let questManagement = {
     let contentQuestDone = document.createElement('div');
     let classItem = document.createElement('div');
 
-    contentQuestGroup.className = 'content-quest-group';
+    contentQuestGroup.className = 'content-quest-group quest-added';
     questCheck.className = 'quest-check';
     contentQuestTitleGroup.className = 'content-quest-title-group';
     contentQuestTitle.className = 'content-quest-title';
@@ -416,6 +525,24 @@ let questManagement = {
         character.debugObject();
       }
     });
+  },
+  deleteQuest: function(questContent) {
+    let questAdded = document.getElementsByClassName('quest-added');
+    let questCategory = document.getElementById(quests.questCategory);
+
+    for (let i = 0; i < questAdded.length; i++) {
+      if (questAdded[i].children[1].children[0].textContent === questContent) {
+        questAdded[i].remove();
+      }
+    }
+
+    console.log(questCategory);
+    if (questCategory.children.length < 2) {
+      questCategory.className = 'quest-category-group hidden';
+    }
+
+    questsToDo -= 1;
+    H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
   }
 };
 
