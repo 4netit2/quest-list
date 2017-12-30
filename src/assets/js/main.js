@@ -100,6 +100,8 @@ let questManagement = {
     const CONFIRM_ADD_QUEST = document.getElementById('confirm-add-quest');
     const QUEST_USER_INPUT = document.getElementById('quest-user-input');
 
+    quests.questCategory = 'category-fun';
+    
     QUEST_USER_INPUT.addEventListener('input', function() {
       quests.questContent = this.value;
       quests.debugQuest();
