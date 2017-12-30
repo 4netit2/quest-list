@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   </head>
   <body>
     <!-- FULL WEBSITE MAIN PAGE -->
@@ -20,7 +20,7 @@
           <h1>My Pseudo</h1>
         </div>
         <!-- Menu Icon -->
-        <div class="menu-icon">
+        <div class="menu-icon" id="menu-icon">
           <a href="javascript:void(0);">&#9776;</a>
         </div>
       </nav>
@@ -30,7 +30,7 @@
         <header>
             <div class="completed-quests">
                 <h3 class="completed-quests-number">completed quests 6/9</h3>
-                <button class="button-add-quest">add quest</button>
+                <button class="button-add-quest" id="add-quests-btn">add quest</button>
             </div>
         </header>
             <div class="quest-category-group">
@@ -135,8 +135,8 @@
       </div> <!-- END CONTENT MAIN PAGE -->
 
     <!-- CONTENT ADD QUEST PAGE, remove just .hidden to make it visible-->
-    <div class="content-add-quest-page" id="content-add-quest-page">
-        <div class="popup-close-button">&#10005;</div>
+    <div class="content-add-quest-page hidden" id="content-add-quest-page">
+        <div class="popup-close-button" id="close-add-quest-btn"><i class="fas fa-times"></i></div>
         <div class="add-quest-input-group">
             <form action="">
               <input type="text" id="quest-user-input" placeholder="ENTER YOUR QUEST">
@@ -211,13 +211,13 @@
     </div> <!-- END CONTENT ADD QUEST PAGE -->
 
     <!-- CONTENT MENU PAGE, remove just .hidden to make it visible-->
-    <div class="content-menu-page hidden">
+    <div class="content-menu-page hidden" id="menu-page">
        <div class="menu-header">
        <div></div>
        <div class="character-pseudo">
           <h1>My Pseudo</h1>
         </div>
-       <div class="popup-close-button">&#10005;</div>
+       <div class="popup-close-button" id="close-menu-btn"><i class="fas fa-times"></i></div>
        </div>
        <div class="menu-content">
           <div class="avatar-portrait">

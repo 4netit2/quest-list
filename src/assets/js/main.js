@@ -1,3 +1,33 @@
+// Open add quest
+const ADD_QUEST_BTN = document.getElementById('add-quests-btn');
+const CONTENT_ADD_QUEST_PAGE = document.getElementById('content-add-quest-page');
+
+ADD_QUEST_BTN.addEventListener('click', function(event) {
+  CONTENT_ADD_QUEST_PAGE.className = 'content-add-quest-page';
+});
+
+// Close add quests
+const CLOSE_ADD_QUEST_BTN = document.getElementById('close-add-quest-btn');
+
+CLOSE_ADD_QUEST_BTN.addEventListener('click', function(event) {
+  CONTENT_ADD_QUEST_PAGE.className = 'content-add-quest-page hidden';
+});
+
+// Open menu
+const MENU_ICON = document.getElementById('menu-icon');
+const MENU_PAGE = document.getElementById('menu-page');
+
+MENU_ICON.addEventListener('click', function(event) {
+  MENU_PAGE.className = 'content-menu-page';
+});
+
+// Close menu
+const CLOSE_MENU_BTN = document.getElementById('close-menu-btn');
+
+CLOSE_MENU_BTN.addEventListener('click', function(event) {
+    MENU_PAGE.className = 'content-menu-page hidden';
+});
+
 // Add quest page
 let quests = {
   questContent: '',
@@ -29,7 +59,6 @@ let questManagement = {
 
     CONFIRM_ADD_QUEST.addEventListener('click', function(event) {
       // debugger;
-      const CONTENT_ADD_QUEST_PAGE = document.getElementById('content-add-quest-page');
       const FIRST_DEFAULT_QUEST = document.getElementById('first-default-quest');
       let questElement = document.createElement('div');
       let questElementContent = document.createElement('div');

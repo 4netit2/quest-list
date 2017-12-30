@@ -149,5 +149,3 @@ let characterCreation = {
 characterCreation.getAvatar();
 characterCreation.getClass();
 characterCreation.getPseudo();
-
-
