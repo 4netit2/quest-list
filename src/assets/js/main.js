@@ -25,6 +25,17 @@ const QUESTS_GROUP_HEALTH = document.getElementById('quests-group-health');
 const QUESTS_GROUP_WORK = document.getElementById('quests-group-work');
 const QUESTS_GROUP_FUN = document.getElementById('quests-group-fun');
 
+const DEFAULT_COURSE_ADD = document.getElementById('default-course-add');
+const DEFAULT_SLACK_ADD = document.getElementById('default-slack-add');
+const DEFAULT_FORUM_ADD = document.getElementById('default-forum-add');
+const DEFAULT_PROJECT_ADD = document.getElementById('default-project-add');
+const DEFAULT_CHALLENGE_ADD = document.getElementById('default-challenge-add');
+const DEFAULT_PERSONAL_ADD = document.getElementById('default-personal-add');
+const DEFAULT_HEALTH_ADD = document.getElementById('default-health-add');
+const DEFAULT_WORK_ADD = document.getElementById('default-work-add');
+const DEFAULT_FUN_ADD = document.getElementById('default-fun-add');
+
+
 let questsToDo = 0;
 let questsDefeated = 0;
 
@@ -115,6 +126,61 @@ let questManagement = {
       questManagement.createQuest();
       quests.debugQuest();
       event.preventDefault();
+    });
+  },
+  addDefaultQuest: function() {
+    DEFAULT_COURSE_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Finish a Udacity lesson';
+      quests.questCategory = 'category-course';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_SLACK_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Participate on a Udacity Slack Channel';
+      quests.questCategory = 'category-slack';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_FORUM_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Help a fellow student on the Forum';
+      quests.questCategory = 'category-forum';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_PROJECT_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Add one feature on a side project';
+      quests.questCategory = 'category-project';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_CHALLENGE_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Complete a Code Challenge';
+      quests.questCategory = 'category-challenge';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_PERSONAL_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Take time for myself';
+      quests.questCategory = 'category-personal';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_HEALTH_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Go for a walk or any activity far from the computer';
+      quests.questCategory = 'category-health';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_WORK_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Do my best at work';
+      quests.questCategory = 'category-work';
+      questManagement.createQuest();
+    });
+
+    DEFAULT_FUN_ADD.addEventListener('click', function(event) {
+      quests.questContent = 'Take some fun time with friends of family';
+      quests.questCategory = 'category-fun';
+      questManagement.createQuest();
     });
   },
   changeQuestCategory: function() {
@@ -228,6 +294,8 @@ let questManagement = {
         QUESTS_GROUP_FUN.className = 'quest-category-group';
       break;
     }
+    questsToDo += 1;
+    H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
   },
   defeatQuest: function() {
     CONTENT_MAIN_PAGE.addEventListener('click', function(event) {
@@ -261,6 +329,7 @@ let questManagement = {
   }
 };
 
+questManagement.addDefaultQuest();
 questManagement.addQuest();
 questManagement.changeQuestCategory();
 questManagement.defeatQuest();
