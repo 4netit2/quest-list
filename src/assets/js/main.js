@@ -13,6 +13,16 @@ const OVERLAY = document.getElementById('overlay');
 const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
 const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
 
+const QUESTS_GROUP_COURSE = document.getElementById('quests-group-course');
+const QUESTS_GROUP_SLACK = document.getElementById('quests-group-slack');
+const QUESTS_GROUP_FORUM = document.getElementById('quests-group-forum');
+const QUESTS_GROUP_PROJECT = document.getElementById('quests-group-project');
+const QUESTS_GROUP_CHALLENGE = document.getElementById('quests-group-challenge');
+const QUESTS_GROUP_PERSONAL = document.getElementById('quests-group-personal');
+const QUESTS_GROUP_HEALTH = document.getElementById('quests-group-health');
+const QUESTS_GROUP_WORK = document.getElementById('quests-group-work');
+const QUESTS_GROUP_FUN = document.getElementById('quests-group-fun');
+
 // Rename the menu bar and page with user pseudo
 H1_ELT_MENU_BAR.textContent = character.pseudo;
 H1_ELT_MENU_PAGE.textContent = character.pseudo;
@@ -70,11 +80,6 @@ let questManagement = {
       quests.debugQuest();
     });
 
-    // ADD_QUEST_CATEGORY.addEventListener('click', function() {
-    //   quests.questCategory = 'category 1';
-    //   quests.debugQuest();
-    // });
-
     CONFIRM_ADD_QUEST.addEventListener('click', function(event) {
       // debugger;
       let questElement = document.createElement('div');
@@ -100,6 +105,7 @@ let questManagement = {
       questElement.appendChild(questElementXP);
       questElement.appendChild(questElementAdd);
 
+      questManagement.createQuest();
       quests.debugQuest();
       event.preventDefault();
     });
@@ -150,6 +156,65 @@ let questManagement = {
       CHOOSE_CATEGORY_POPUP.className = 'choose-category-popup hidden';
       quests.debugQuest();
     });
+  },
+  createQuest: function() {
+    let contentQuestGroup = document.createElement('div');
+    let questCheck = document.createElement('div');
+    let contentQuestTitleGroup = document.createElement('div');
+    let contentQuestTitle = document.createElement('p');
+    let contentQuestXP = document.createElement('div');
+
+    contentQuestGroup.className = 'content-quest-group';
+    questCheck.className = 'quest-check';
+    contentQuestTitleGroup.className = 'content-quest-title-group';
+    contentQuestTitle.className = 'content-quest-title';
+    contentQuestTitle.textContent = quests.questContent;
+    contentQuestXP.className = 'content-quest-xp';
+    contentQuestXP.textContent = '50 xp';
+
+    contentQuestTitleGroup.appendChild(contentQuestTitle);
+    contentQuestTitleGroup.appendChild(contentQuestXP);
+    contentQuestGroup.appendChild(questCheck);
+    contentQuestGroup.appendChild(contentQuestTitleGroup);
+
+    switch(quests.questCategory) {
+      case 'category-course':
+        QUESTS_GROUP_COURSE.appendChild(contentQuestGroup);
+        QUESTS_GROUP_COURSE.className = 'quest-category-group';
+      break;
+      case 'category-slack':
+        QUESTS_GROUP_SLACK.appendChild(contentQuestGroup);
+        QUESTS_GROUP_SLACK.className = 'quest-category-group';
+      break;
+      case 'category-forum':
+        QUESTS_GROUP_FORUM.appendChild(contentQuestGroup);
+        QUESTS_GROUP_FORUM.className = 'quest-category-group';
+      break;
+      case 'category-project':
+        QUESTS_GROUP_PROJECT.appendChild(contentQuestGroup);
+        QUESTS_GROUP_PROJECT.className = 'quest-category-group';
+      break;
+      case 'category-challenge':
+        QUESTS_GROUP_CHALLENGE.appendChild(contentQuestGroup);
+        QUESTS_GROUP_CHALLENGE.className = 'quest-category-group';
+      break;
+      case 'category-personal':
+        QUESTS_GROUP_PERSONAL.appendChild(contentQuestGroup);
+        QUESTS_GROUP_PERSONAL.className = 'quest-category-group';
+      break;
+      case 'category-health':
+        QUESTS_GROUP_HEALTH.appendChild(contentQuestGroup);
+        QUESTS_GROUP_HEALTH.className = 'quest-category-group';
+      break;
+      case 'category-work':
+        QUESTS_GROUP_WORK.appendChild(contentQuestGroup);
+        QUESTS_GROUP_WORK.className = 'quest-category-group';
+      break;
+      case 'category-fun':
+        QUESTS_GROUP_FUN.appendChild(contentQuestGroup);
+        QUESTS_GROUP_FUN.className = 'quest-category-group';
+      break;
+    }
   }
 };
 
