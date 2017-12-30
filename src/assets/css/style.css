@@ -142,8 +142,12 @@ button:hover {
 }
 
 /* CATEGORIES */
+#add-quest-category .quest-category-item {
+  background: url('../images/icons/fun_45x45.png');
+}
+
 .category-course {
-  background: url('../images/icons/courses_45x45.png');
+  background: url("../images/icons/courses_45x45.png");
 }
 
 .category-slack {
@@ -667,10 +671,6 @@ button:hover {
     text-transform: uppercase;
     font-weight: 800;
     align-self:center;
-}
-
-#add-quest-category .quest-category-item {
-  background: url('../images/icons/fun_45x45.png');
 }
 
 #add-quest-category:hover .quest-category-item {

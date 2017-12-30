@@ -7,7 +7,7 @@ const MENU_PAGE = document.getElementById('menu-page');
 const CLOSE_MENU_BTN = document.getElementById('close-menu-btn');
 const ADD_QUEST_CATEGORY = document.getElementById('add-quest-category');
 const CHOOSE_CATEGORY_POPUP = document.getElementById('choose-category-popup');
-const ADD_QUEST_ITEM = document.getElementById('add-quest_item');
+const ADD_QUEST_ITEM = document.getElementById('add-quest-item');
 const OVERLAY = document.getElementById('overlay');
 const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
 const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
@@ -47,6 +47,7 @@ const DEFAULT_QUEST_FUN = document.getElementById('default-quest-fun');
 
 let questsToDo = 0;
 let questsDefeated = 0;
+let saveCategory = 'category-fun';
 
 // Rename the menu bar and page with user pseudo
 H1_ELT_MENU_BAR.textContent = character.pseudo;
@@ -101,6 +102,7 @@ let questManagement = {
     const QUEST_USER_INPUT = document.getElementById('quest-user-input');
 
     CONFIRM_ADD_QUEST.addEventListener('click', function(event) {
+      quests.questCategory = saveCategory;
       // debugger;
       quests.questContent = QUEST_USER_INPUT.value;
       let questElement = document.createElement('div');
@@ -404,38 +406,47 @@ let questManagement = {
         case 'quest-category-item category-course':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/courses_45x45.png")';
           quests.questCategory = 'category-course';
+          saveCategory = 'category-course';
         break;
         case 'quest-category-item category-slack':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/Slack_45x45.png")';
           quests.questCategory = 'category-slack';
+          saveCategory = 'category-slack';
         break;
         case 'quest-category-item category-forum':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/forum_45x45.png")';
           quests.questCategory = 'category-forum';
+          saveCategory = 'category-forum';
         break;
         case 'quest-category-item category-project':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/project_45x45.png")';
           quests.questCategory = 'category-project';
+          saveCategory = 'category-project';
         break;
         case 'quest-category-item category-challenge':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/challenge_45x45.png")';
           quests.questCategory = 'category-challenge';
+          saveCategory = 'category-challenge';
         break;
         case 'quest-category-item category-personal':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/home_45x45.png")';
           quests.questCategory = 'category-personal';
+          saveCategory = 'category-personal';
         break;
         case 'quest-category-item category-health':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/health_45x45.png")';
           quests.questCategory = 'category-health';
+          saveCategory = 'category-health';
         break;
         case 'quest-category-item category-work':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/work_45x45.png")';
           quests.questCategory = 'category-work';
+          saveCategory = 'category-work';
         break;
         case 'quest-category-item category-fun':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/fun_45x45.png")';
           quests.questCategory = 'category-fun';
+          saveCategory = 'category-fun';
         break;
       }
       ADD_QUEST_ITEM.style.backgroundSize = 'cover';
