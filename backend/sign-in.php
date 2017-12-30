@@ -50,6 +50,13 @@
             <!-- SIGN UP BUTTON -->
             <button class="sign-btn" id="sign-in-btn" name="login">Connexion</button>
           </form>
+          <p>
+            <?php  
+                if(isset($_SESSION['message']) AND !empty($_SESSION['message'])){
+                    echo $_SESSION['message'];  
+                }
+            ?>
+          <p>
         </div>
       </section>
     </div>
