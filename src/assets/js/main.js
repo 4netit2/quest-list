@@ -59,7 +59,7 @@ let questManagement = {
 
     CONFIRM_ADD_QUEST.addEventListener('click', function(event) {
       // debugger;
-      const FIRST_DEFAULT_QUEST = document.getElementById('first-default-quest');
+      const FIRST_DEFAULT_QUEST = document.getElementById('default-quest-course');
       let questElement = document.createElement('div');
       let questElementContent = document.createElement('div');
       let questElementCategory = document.createElement('div');

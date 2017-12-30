@@ -142,6 +142,43 @@ button:hover {
   background: url('../images/classes/warrior_45x45.png')
 }
 
+/* CATEGORIES */
+.category-course {
+  background: url('../images/icons/courses_45x45.png');
+}
+
+.category-slack {
+  background: url('../images/icons/Slack_45x45.png');
+}
+
+.category-forum {
+  background: url('../images/icons/forum_45x45.png');
+}
+
+.category-project {
+  background: url('../images/icons/project_45x45.png');
+}
+
+.category-challenge {
+  background: url('../images/icons/challenge_45x45.png');
+}
+
+.category-personal {
+  background: url('../images/icons/home_45x45.png');
+}
+
+.category-health {
+  background: url('../images/icons/health_45x45.png');
+}
+
+.category-work {
+  background: url('../images/icons/work_45x45.png');
+}
+
+.category-fun {
+  background: url('../images/icons/fun_45x45.png');
+}
+
 
 /* FULL WEBSITE SIGN */
 /* SIGN UP */
@@ -566,10 +603,23 @@ button:hover {
     font-size: 1.6em;
 }
 
-.confirm-add-quest-disable a{
+.confirm-add-quest-disable {
     color:#343434;
     font-size: 1.6em;
+    text-transform: uppercase;
+    background: #5d1111;
+    color: #fff;
+    border:1px solid #93928e;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
+
+.confirm-add-quest-disable:hover {
+  color: #e5af29;
+  border-color: #e5af29;
+  cursor: pointer;
+}
+
 
 .content-default-quest{
     text-transform: uppercase;
