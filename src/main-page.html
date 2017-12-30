@@ -11,6 +11,8 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
   </head>
   <body>
+    <!-- OVERLAY -->
+    <div class="overlay hidden" id="overlay"></div>
     <!-- FULL WEBSITE MAIN PAGE -->
     <div class="full-website-main-page">
       <!-- MAIN NAV BAR -->
@@ -141,8 +143,8 @@
             <form action="">
               <input type="text" id="quest-user-input" placeholder="ENTER YOUR QUEST">
             </form>
-            <div class="choose-category-quest">
-                <div class="quest-category-item" id="add-quest-category"></div>
+            <div class="choose-category-quest" id="add-quest-category">
+                <div class="quest-category-item" id="add-quest_item"></div>
                 <div class="fas fa-sort-down"></div>
             </div>
             <div class="content-quest-xp">50 xp</div>
@@ -237,6 +239,25 @@
        </div>
 
     </div> <!-- END CONTENT MENU PAGE -->
+
+    <!-- CHOOSE CATEGORY POPUP -->
+    <div class="choose-category-popup hidden" id="choose-category-popup">
+      <div class="choose-category-row">
+        <div class="quest-category-item category-course"></div>
+        <div class="quest-category-item category-slack"></div>
+        <div class="quest-category-item category-forum"></div>
+      </div>
+      <div class="choose-category-row">
+        <div class="quest-category-item category-project"></div>
+        <div class="quest-category-item category-challenge"></div>
+        <div class="quest-category-item category-personal"></div>
+      </div>
+      <div class="choose-category-row">
+        <div class="quest-category-item category-health"></div>
+        <div class="quest-category-item category-work"></div>
+        <div class="quest-category-item category-fun"></div>
+      </div>
+    </div>
 
     </div> <!-- END FULL WEBSITE MAIN PAGE -->
 
