@@ -470,18 +470,18 @@ button:hover {
     border: 3px solid #93928e;
     border-radius: 50%;
     margin:auto 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.quest-check-crossed{
-    width: 32px;
-    height: 32px;
-    background: #2a2927;
-    border: 3px solid #93928e;
-    border-radius: 50%;
-    margin: auto 7px;
-    text-align: center;
-    color: #e5af29;;
-    font-size: 1.4em;
+.quest-check:hover {
+  cursor: pointer;
+}
+
+.quest-check .fa-times {
+  font-size: 1.6em;
+  color: #e5af29;
 }
 
 .content-quest-title-group{
@@ -525,6 +525,14 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.content-quest-done .class-item {
+  border: none;
+}
+
+.content-quest-done .class-item:hover {
+  cursor: auto;
 }
 
 /* ADD QUEST PAGE */

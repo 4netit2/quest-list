@@ -12,6 +12,7 @@ const DEFAULT_QUEST_COURSE = document.getElementById('default-quest-course');
 const OVERLAY = document.getElementById('overlay');
 const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
 const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
+const CONTENT_MAIN_PAGE = document.getElementById('content-main-page');
 
 const QUESTS_GROUP_COURSE = document.getElementById('quests-group-course');
 const QUESTS_GROUP_SLACK = document.getElementById('quests-group-slack');
@@ -163,6 +164,8 @@ let questManagement = {
     let contentQuestTitleGroup = document.createElement('div');
     let contentQuestTitle = document.createElement('p');
     let contentQuestXP = document.createElement('div');
+    let contentQuestDone = document.createElement('div');
+    let classItem = document.createElement('div');
 
     contentQuestGroup.className = 'content-quest-group';
     questCheck.className = 'quest-check';
@@ -171,9 +174,13 @@ let questManagement = {
     contentQuestTitle.textContent = quests.questContent;
     contentQuestXP.className = 'content-quest-xp';
     contentQuestXP.textContent = '50 xp';
+    contentQuestDone.className = 'content-quest-done hidden';
+    classItem.className = 'class-item';
 
+    contentQuestDone.appendChild(classItem);
     contentQuestTitleGroup.appendChild(contentQuestTitle);
     contentQuestTitleGroup.appendChild(contentQuestXP);
+    contentQuestTitleGroup.appendChild(contentQuestDone);
     contentQuestGroup.appendChild(questCheck);
     contentQuestGroup.appendChild(contentQuestTitleGroup);
 
@@ -215,8 +222,35 @@ let questManagement = {
         QUESTS_GROUP_FUN.className = 'quest-category-group';
       break;
     }
+  },
+  defeatQuest: function() {
+    CONTENT_MAIN_PAGE.addEventListener('click', function(event) {
+      let elementClicked = event.target;
+      if (elementClicked.className === 'quest-check') {
+        let crossDefeatQuest = document.createElement('i');
+
+        crossDefeatQuest.className = 'fas fa-times';
+        elementClicked.appendChild(crossDefeatQuest);
+
+        elementClicked.nextSibling.children[2].className = 'content-quest-done';
+        elementClicked.className = 'quest-check completed';
+
+        switch (character.class) {
+          case 'mage':
+            elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/mage_45x45.png")'
+          break;
+          case 'rogue':
+            elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/rogue_45x45.png")'
+          break;
+          case 'warrior':
+            elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
+          break;
+        }
+      }
+    });
   }
 };
 
 questManagement.addQuest();
 questManagement.changeQuestCategory();
+questManagement.defeatQuest();

@@ -1,8 +1,8 @@
 // Main object to represents the user
 let character = {
   pseudo: 'User Pseudo',
-  avatar: '',
-  class: '',
+  avatar: 'avatar-ape',
+  class: 'warrior',
   level: 1,
   experience: 0,
   // Get an avatar name
