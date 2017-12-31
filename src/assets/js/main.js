@@ -572,6 +572,7 @@ let questManagement = {
   deleteQuest: function(questContent) {
     let questAdded = document.getElementsByClassName('quest-added');
     let questCategory = document.getElementById(quests.questCategory);
+    let questCategoryGroup = document.getElementsByClassName('quest-category-group');
 
     for (let i = 0; i < questAdded.length; i++) {
       if (questAdded[i].children[1].children[0].textContent === questContent) {
@@ -580,9 +581,14 @@ let questManagement = {
     }
 
     console.log(questCategory);
-    if (questCategory.children.length < 2) {
-      questCategory.className = 'quest-category-group hidden';
+    for (let j = 0; j < questCategoryGroup.length; j++) {
+      if (questCategoryGroup[j].children.length < 2) {
+        questCategoryGroup[j].className = 'quest-category-group hidden';
+      }
     }
+    // if (questCategory.children.length < 2) {
+    //   questCategory.className = 'quest-category-group hidden';
+    // }
 
     questsToDo -= 1;
     H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
