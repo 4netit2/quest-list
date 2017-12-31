@@ -114,6 +114,7 @@ let questManagement = {
         // debugger;
         quests.questContent = QUEST_USER_INPUT.value;
         let questElement = document.createElement('div');
+        let questElementNumber = document.createElement('span');
         let questElementContent = document.createElement('div');
         let questElementCategory = document.createElement('div');
         let questElementXP = document.createElement('div');
@@ -122,6 +123,7 @@ let questManagement = {
         let overlayIcon = document.createElement('div');
 
         questElement.className = 'add-quest-content-default-group';
+        questElementNumber.className = uniqueQuestNumber;
         questElementContent.className = 'content-default-quest';
         questElementContent.textContent = quests.questContent;
         questElementCategory.className = 'quest-category-item ' + quests.questCategory;
@@ -134,6 +136,7 @@ let questManagement = {
         questElementAdd.appendChild(overlayIcon);
 
         CONTENT_ADD_QUEST_PAGE.insertBefore(questElement, DEFAULT_QUEST_COURSE);
+        questElement.appendChild(questElementNumber);
         questElement.appendChild(questElementContent);
         questElement.appendChild(questElementCategory);
         questElement.appendChild(questElementXP);
@@ -162,6 +165,7 @@ let questManagement = {
   manageDefaultQuest: function() {
     let defaultQuestRemove = document.createElement('i');
     let defaultQuestAdd = document.createElement('i');
+    let defaultQuestNumber = document.createElement('span');
 
     DEFAULT_COURSE_ADD.addEventListener('click', function(event) {
       if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest-disable') {
@@ -170,6 +174,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_COURSE.appendChild(defaultQuestNumber);
         DEFAULT_COURSE_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_COURSE.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_COURSE.children[2].className = 'content-quest-xp';
@@ -199,6 +205,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_SLACK.appendChild(defaultQuestNumber);
         DEFAULT_SLACK_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_SLACK.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_SLACK.children[2].className = 'content-quest-xp';
@@ -228,6 +236,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_FORUM.appendChild(defaultQuestNumber);
         DEFAULT_FORUM_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_FORUM.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_FORUM.children[2].className = 'content-quest-xp';
@@ -257,6 +267,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_PROJECT.appendChild(defaultQuestNumber);
         DEFAULT_PROJECT_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_PROJECT.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_PROJECT.children[2].className = 'content-quest-xp';
@@ -286,6 +298,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_CHALLENGE.appendChild(defaultQuestNumber);
         DEFAULT_CHALLENGE_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_CHALLENGE.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_CHALLENGE.children[2].className = 'content-quest-xp';
@@ -315,6 +329,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_PERSONAL.appendChild(defaultQuestNumber);
         DEFAULT_PERSONAL_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_PERSONAL.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_PERSONAL.children[2].className = 'content-quest-xp';
@@ -344,6 +360,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_HEALTH.appendChild(defaultQuestNumber);
         DEFAULT_HEALTH_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_HEALTH.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_HEALTH.children[2].className = 'content-quest-xp';
@@ -373,6 +391,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_WORK.appendChild(defaultQuestNumber);
         DEFAULT_WORK_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_WORK.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_WORK.children[2].className = 'content-quest-xp';
@@ -402,6 +422,8 @@ let questManagement = {
         this.children[0].remove();
         this.appendChild(defaultQuestRemove);
         defaultQuestRemove.className = 'fas fa-check';
+        defaultQuestNumber.className = uniqueQuestNumber;
+        DEFAULT_QUEST_FUN.appendChild(defaultQuestNumber);
         DEFAULT_FUN_ADD.className = 'confirm-add-quest';
         DEFAULT_QUEST_FUN.children[0].className = 'content-default-quest';
         DEFAULT_QUEST_FUN.children[2].className = 'content-quest-xp';
