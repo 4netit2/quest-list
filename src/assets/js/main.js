@@ -648,7 +648,11 @@ let questManagement = {
           case 'warrior':
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
           break;
+          default:
+            elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
+            break;
         }
+        console.log(character.class);
         character.experience += 50;
         questsDefeated += 1;
         H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
