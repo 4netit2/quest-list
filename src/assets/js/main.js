@@ -51,6 +51,7 @@ const DEFAULT_QUEST_FUN = document.getElementById('default-quest-fun');
 let questsToDo = 0;
 let questsDefeated = 0;
 let saveCategory = 'category-fun';
+let uniqueQuestNumber = '1';
 
 // Rename the menu bar and page with user pseudo
 H1_ELT_MENU_BAR.textContent = character.pseudo;
@@ -488,7 +489,8 @@ let questManagement = {
       let contentQuestDone = document.createElement('div');
       let classItem = document.createElement('div');
 
-      contentQuestGroup.className = 'content-quest-group quest-added';
+      contentQuestGroup.className = 'content-quest-group quest-added ' + uniqueQuestNumber;
+      contentQuestGroup.id = uniqueQuestNumber;
       questCheck.className = 'quest-check';
       contentQuestTitleGroup.className = 'content-quest-title-group';
       contentQuestTitle.className = 'content-quest-title';
@@ -545,6 +547,7 @@ let questManagement = {
       }
       questsToDo += 1;
       H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
+      uniqueQuestNumber++;
   },
   defeatQuest: function() {
     CONTENT_MAIN_PAGE.addEventListener('click', function(event) {
