@@ -146,6 +146,7 @@ let questManagement = {
     CONTENT_ADD_QUEST_PAGE.addEventListener('click', function(event) {
       let elementClicked = event.target;
       if (elementClicked.className === 'overlay-icon') {
+        quests.questContent = elementClicked.parentNode.parentNode.children[0].textContent;
         elementClicked.parentNode.parentNode.remove();
         questManagement.deleteQuest(quests.questContent);
       }
@@ -589,7 +590,7 @@ let questManagement = {
     // if (questCategory.children.length < 2) {
     //   questCategory.className = 'quest-category-group hidden';
     // }
-
+    quests.debugQuest();
     questsToDo -= 1;
     H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
   }
