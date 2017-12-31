@@ -7,7 +7,7 @@ $pseudo = $mysqli->escape_string($_POST['pseudo']);
 $email = $_SESSION['mail'];
 
 $query = "UPDATE users
-          SET avatar_name = '$avatar_name', image = '$avatar_url', class = '$class', pseudo = '$pseudo'
+          SET avatar_name = '$avatar_name', image = '$avatar_url', class = '$class', pseudo = '$pseudo', existing_character = 1
           WHERE email = '$email'";
 
 $result = $mysqli->query($query);
@@ -17,5 +17,5 @@ $_SESSION['avatar_url'] = $avatar_url;
 $_SESSION['class'] = $class;
 $_SESSION['pseudo'] = $pseudo;
 
-//header("location: .php");
+header("location: main-page.php");
 ?>

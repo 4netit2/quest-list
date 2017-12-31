@@ -53,9 +53,15 @@ let questsDefeated = 0;
 let saveCategory = 'category-fun';
 let uniqueQuestNumber = '1';
 
+let mail = document.getElementById("session_name").value;
+let questCount;
+$.post('findQuestCount.php', {postMail: mail}, function(data){
+  questCount = data;
+});
+
 // Rename the menu bar and page with user pseudo
-H1_ELT_MENU_BAR.textContent = character.pseudo;
-H1_ELT_MENU_PAGE.textContent = character.pseudo;
+/*H1_ELT_MENU_BAR.textContent = character.pseudo;
+H1_ELT_MENU_PAGE.textContent = character.pseudo;*/
 
 // Open add quest
 ADD_QUEST_BTN.addEventListener('click', function(event) {
@@ -130,6 +136,8 @@ let questManagement = {
         questElementXP.className = 'content-quest-xp';
         questElementXP.textContent = '50xp';
         questElementAdd.className = 'confirm-add-quest custom-quest';
+        questElementAdd.id = questCount;
+        questElementAdd.setAttribute("onclick", "handleQuest(this.className, this.id);");
         questElementAddIcon.className= 'fas fa-check';
         questElementAdd.appendChild(questElementAddIcon);
         overlayIcon.className = 'overlay-icon';
@@ -143,6 +151,7 @@ let questManagement = {
         questElement.appendChild(questElementAdd);
 
         questManagement.createQuest();
+        questCount++;
         quests.debugQuest();
         QUEST_USER_INPUT.value = '';
       } else {
@@ -672,9 +681,74 @@ let questManagement = {
   }
 };
 
-
 questManagement.manageDefaultQuest();
 questManagement.addQuest();
 questManagement.deleteCustomQuest();
 questManagement.changeQuestCategory();
 questManagement.defeatQuest();
+
+function handleQuest(className, id){
+
+  let category;
+  let title;
+  let mail = document.getElementById("session_name").value;
+  let ID = 0;
+
+  if(id.indexOf("quest") != -1){
+    category = "custom";
+    title = document.getElementById("quest-user-input").value;
+    ID = questCount;
+    console.log(title.toUpperCase());
+  }else if(id.indexOf("course") != -1){
+    category = "course";
+    title = "FINISH A UDACITY LESSON";
+    console.log(title);
+  }else if(id.indexOf("slack") != -1){
+    category = "slack";
+    title = "PARTICIPATE ON A UDACITY SLACK CHANNEL";
+    console.log(title);
+  }else if(id.indexOf("forum") != -1){
+    category = "forum";
+    title = "HELP A FELLOW STUDENT ON THE FORUM";
+    console.log(title);
+  }else if(id.indexOf("project") != -1){
+    category = "project";
+    title = "ADD ONE FEATURE ON A SIDE PROJECT";
+    console.log(title);
+  }else if(id.indexOf("challenge") != -1){
+    category = "challenge";
+    title = "COMPLETE A CODE CHALLENGE";
+    console.log(title);
+  }else if(id.indexOf("personal") != -1){
+    category = "personal";
+    title = "TAKE TIME FOR MYSELF";
+    console.log(title);
+  }else if(id.indexOf("health") != -1){
+    category = "health";
+    title = "GO FOR A WALK OR ANY ACTIVITY FAR FROM THE COMPUTER";
+    console.log(title);
+  }else if(id.indexOf("work") != -1){
+    category = "work";
+    title = "DO MY BEST AT WORK";
+    console.log(title);
+  }else if(id.indexOf("fun") != -1){
+    category = "fun";
+    title = "TAKE SOME FUN TIME WITH FRIENDS OF FAMILY";
+    console.log(title);
+  }else{
+    ID = id;
+  }
+
+  if(className.indexOf("disable") != -1){
+    //Quest was disabled so add it
+    $.post('addQuest.php', {postCategory: category, postTitle: title.toUpperCase(), postMail: mail, postID: ID});
+  }else{
+    //Quest was added so remove it
+    if(ID != 0){
+      $.post('removeQuest.php', {postTitle: "none", postMail: mail, postID: ID});
+    }else{
+      $.post('removeQuest.php', {postTitle: title.toUpperCase(), postMail: mail, postID: ID});
+    }
+  }
+
+}
