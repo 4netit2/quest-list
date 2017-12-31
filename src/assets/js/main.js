@@ -155,19 +155,40 @@ let questManagement = {
   deleteCustomQuest: function() {
     CONTENT_ADD_QUEST_PAGE.addEventListener('click', function(event) {
       let elementClicked = event.target;
+      let questAdded = document.getElementsByClassName('quest-added');
+      let questCategoryGroup = document.getElementsByClassName('quest-category-group');
+
       if (elementClicked.className === 'overlay-icon') {
-        quests.questContent = elementClicked.parentNode.parentNode.children[0].textContent;
-        elementClicked.parentNode.parentNode.remove();
-        questManagement.deleteQuest(quests.questContent);
+        let numberToCompare = elementClicked.parentNode.parentNode.children[0];
+        for (let i = 0; i < questAdded.length; i++) {
+          if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
+            questsDefeated--;
+          }
+          if (questAdded[i].id === numberToCompare.className) {
+            quests.questContent = elementClicked.parentNode.parentNode.children[0].textContent;
+            elementClicked.parentNode.parentNode.remove();
+            questAdded[i].remove();
+          }
+        }
+        quests.debugQuest();
+        questsToDo -= 1;
+        H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
+        test();
+      }
+
+      for (let j = 0; j < questCategoryGroup.length; j++) {
+        if (questCategoryGroup[j].children.length < 2) {
+          questCategoryGroup[j].className = 'quest-category-group hidden';
+        }
       }
     });
   },
   manageDefaultQuest: function() {
     let defaultQuestRemove = document.createElement('i');
     let defaultQuestAdd = document.createElement('i');
-    let defaultQuestNumber = document.createElement('span');
 
     DEFAULT_COURSE_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Finish a Udacity lesson';
         quests.questCategory = 'category-course';
@@ -183,6 +204,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_COURSE_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -193,12 +215,14 @@ let questManagement = {
         quests.questContent = 'Finish a Udacity lesson';
         quests.questCategory = 'category-course';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_SLACK_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_SLACK_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Participate on a Udacity Slack Channel';
         quests.questCategory = 'category-slack';
@@ -214,6 +238,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_SLACK_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -224,12 +249,14 @@ let questManagement = {
         quests.questContent = 'Participate on a Udacity Slack Channel';
         quests.questCategory = 'category-slack';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_FORUM_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_FORUM_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Help a fellow student on the Forum';
         quests.questCategory = 'category-forum';
@@ -245,6 +272,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_FORUM_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -255,12 +283,14 @@ let questManagement = {
         quests.questContent = 'Help a fellow student on the Forum';
         quests.questCategory = 'category-forum';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_PROJECT_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_PROJECT_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Add one feature on a side project';
         quests.questCategory = 'category-project';
@@ -276,6 +306,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_PROJECT_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -286,12 +317,14 @@ let questManagement = {
         quests.questContent = 'Add one feature on a side project';
         quests.questCategory = 'category-project';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_CHALLENGE_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_CHALLENGE_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Complete a Code Challenge';
         quests.questCategory = 'category-challenge';
@@ -307,6 +340,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_CHALLENGE_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -317,12 +351,14 @@ let questManagement = {
         quests.questContent = 'Complete a Code Challenge';
         quests.questCategory = 'category-challenge';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_PERSONAL_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_PERSONAL_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Take time for myself';
         quests.questCategory = 'category-personal';
@@ -338,6 +374,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_PERSONAL_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -348,12 +385,14 @@ let questManagement = {
         quests.questContent = 'Take time for myself';
         quests.questCategory = 'category-personal';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_HEALTH_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_HEALTH_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Go for a walk or any activity far from the computer';
         quests.questCategory = 'category-health';
@@ -369,6 +408,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_HEALTH_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -379,12 +419,14 @@ let questManagement = {
         quests.questContent = 'Go for a walk or any activity far from the computer';
         quests.questCategory = 'category-health';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_WORK_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_WORK_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Do my best at work';
         quests.questCategory = 'category-work';
@@ -400,6 +442,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_WORK_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -410,12 +453,14 @@ let questManagement = {
         quests.questContent = 'Do my best at work';
         quests.questCategory = 'category-work';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
 
     DEFAULT_FUN_ADD.addEventListener('click', function(event) {
+      let defaultQuestNumber = document.createElement('span');
       if (DEFAULT_FUN_ADD.className === 'confirm-add-quest-disable') {
         quests.questContent = 'Take some fun time with friends of family';
         quests.questCategory = 'category-fun';
@@ -431,6 +476,7 @@ let questManagement = {
         questManagement.createQuest();
         quests.questCategory = 'category-fun';
       } else if (DEFAULT_FUN_ADD.className === 'confirm-add-quest') {
+        let numberQuest = this.parentNode.children[4];
         this.children[0].remove();
         this.appendChild(defaultQuestAdd);
         defaultQuestAdd.className = 'fas fa-plus';
@@ -441,8 +487,9 @@ let questManagement = {
         quests.questContent = 'Take some fun time with friends of family';
         quests.questCategory = 'category-fun';
         console.log(quests.questContent);
-        questManagement.deleteQuest(quests.questContent);
+        questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
+        numberQuest.remove();
       }
     });
   },
@@ -601,31 +648,34 @@ let questManagement = {
       }
     });
   },
-  deleteQuest: function(questContent) {
+  deleteQuest: function(questNumber) {
     let questAdded = document.getElementsByClassName('quest-added');
-    let questCategory = document.getElementById(quests.questCategory);
     let questCategoryGroup = document.getElementsByClassName('quest-category-group');
 
     for (let i = 0; i < questAdded.length; i++) {
-      if (questAdded[i].children[1].children[0].textContent === questContent) {
+      if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
+        questsDefeated--;
+      }
+      if (questAdded[i].id === questNumber) {
         questAdded[i].remove();
       }
     }
+    console.log(questNumber);
+    quests.debugQuest();
+    questsToDo -= 1;
+    H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
 
-    console.log(questCategory);
     for (let j = 0; j < questCategoryGroup.length; j++) {
       if (questCategoryGroup[j].children.length < 2) {
         questCategoryGroup[j].className = 'quest-category-group hidden';
       }
     }
-    // if (questCategory.children.length < 2) {
-    //   questCategory.className = 'quest-category-group hidden';
-    // }
-    quests.debugQuest();
-    questsToDo -= 1;
-    H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
   }
 };
+
+function test() {
+  alert('hello');
+}
 
 questManagement.manageDefaultQuest();
 questManagement.addQuest();
