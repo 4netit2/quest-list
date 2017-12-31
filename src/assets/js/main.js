@@ -173,7 +173,6 @@ let questManagement = {
         quests.debugQuest();
         questsToDo -= 1;
         H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
-        test();
       }
 
       for (let j = 0; j < questCategoryGroup.length; j++) {
@@ -673,9 +672,6 @@ let questManagement = {
   }
 };
 
-function test() {
-  alert('hello');
-}
 
 questManagement.manageDefaultQuest();
 questManagement.addQuest();
