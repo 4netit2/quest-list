@@ -88,6 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   <!-- Link to the main script -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/create-character.js"></script>
   </body>
 </html>
