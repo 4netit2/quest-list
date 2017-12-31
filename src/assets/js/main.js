@@ -13,6 +13,7 @@ const H1_ELT_MENU_BAR = document.querySelector('.full-website-main-page h1');
 const H1_ELT_MENU_PAGE = document.querySelector('.content-menu-page h1');
 const CONTENT_MAIN_PAGE = document.getElementById('content-main-page');
 const H3_ELT = document.querySelector('h3');
+const RELOAD_BUTTON = document.getElementById('reload-button');
 
 const QUESTS_GROUP_COURSE = document.getElementById('category-course');
 const QUESTS_GROUP_SLACK = document.getElementById('category-slack');
@@ -82,6 +83,11 @@ ADD_QUEST_CATEGORY.addEventListener('click', function(event) {
   CHOOSE_CATEGORY_POPUP.className = 'choose-category-popup';
 });
 
+// Reload script
+RELOAD_BUTTON.addEventListener('click', function(event) {
+  location.reload();
+});
+
 
 // Add quest page
 let quests = {
@@ -111,6 +117,7 @@ let questManagement = {
       let questElementXP = document.createElement('div');
       let questElementAdd = document.createElement('div');
       let questElementAddIcon = document.createElement('i');
+      let overlayIcon = document.createElement('div');
 
       questElement.className = 'add-quest-content-default-group';
       questElementContent.className = 'content-default-quest';
@@ -121,6 +128,8 @@ let questManagement = {
       questElementAdd.className = 'confirm-add-quest custom-quest';
       questElementAddIcon.className= 'fas fa-check';
       questElementAdd.appendChild(questElementAddIcon);
+      overlayIcon.className = 'overlay-icon';
+      questElementAdd.appendChild(overlayIcon);
 
       CONTENT_ADD_QUEST_PAGE.insertBefore(questElement, DEFAULT_QUEST_COURSE);
       questElement.appendChild(questElementContent);
@@ -131,6 +140,15 @@ let questManagement = {
       questManagement.createQuest();
       quests.debugQuest();
       event.preventDefault();
+    });
+  },
+  deleteCustomQuest: function() {
+    CONTENT_ADD_QUEST_PAGE.addEventListener('click', function(event) {
+      let elementClicked = event.target;
+      if (elementClicked.className === 'overlay-icon') {
+        elementClicked.parentNode.parentNode.remove();
+        questManagement.deleteQuest(quests.questContent);
+      }
     });
   },
   manageDefaultQuest: function() {
@@ -573,5 +591,6 @@ let questManagement = {
 
 questManagement.manageDefaultQuest();
 questManagement.addQuest();
+questManagement.deleteCustomQuest();
 questManagement.changeQuestCategory();
 questManagement.defeatQuest();
