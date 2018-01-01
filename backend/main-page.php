@@ -1,11 +1,11 @@
 <?php
     session_start();
     require 'db.php';
-   
+
     $email = $_SESSION['mail'];
     $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
     $user = $result->fetch_assoc();
-    
+
     $pseudo = $user['pseudo'];
 
     $xp = ($user['experience'] / $user['experience_needed']) * 100;
@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
 

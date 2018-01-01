@@ -6,10 +6,10 @@ if(!isset($_SESSION['logged_in'])){
   header("location: sign-in.php");
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{    
-    if (isset($_POST['create'])) { //user registering 
-        require 'create.php';  
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['create'])) { //user registering
+        require 'create.php';
     }
     elseif(isset($_POST['logout'])){
         require 'logout.php';
@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <!-- FULL WEBSITE CHARACTER -->
@@ -63,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <input type="text" id="avatar-name" name="avatar_name" style="display: none"/>
             <input type="text" id="avatar-url" name="avatar_url" style="display: none"/>
             <input type="text" id="class-name" name="class" style="display: none"/>
-           
+
             <div class="avatar-portrait">
               <img src="assets/images/avatars/todo_ape.png" alt="Avatar" id="main-avatar">
             </div>
