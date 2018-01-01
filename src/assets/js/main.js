@@ -53,11 +53,11 @@ let questsDefeated = 0;
 let saveCategory = 'category-fun';
 let uniqueQuestNumber = '1';
 
-let mail = document.getElementById("session_name").value;
-let questCount;
-$.post('findQuestCount.php', {postMail: mail}, function(data){
-  questCount = data;
-});
+// let mail = document.getElementById("session_name").value;
+// let questCount;
+// $.post('findQuestCount.php', {postMail: mail}, function(data){
+//   questCount = data;
+// });
 
 // Rename the menu bar and page with user pseudo
 /*H1_ELT_MENU_BAR.textContent = character.pseudo;
