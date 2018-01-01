@@ -665,10 +665,10 @@ let questManagement = {
     let questCategoryGroup = document.getElementsByClassName('quest-category-group');
 
     for (let i = 0; i < questAdded.length; i++) {
-      if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
-        questsDefeated--;
-      }
       if (questAdded[i].id === questNumber) {
+        if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
+          questsDefeated--;
+        }
         questAdded[i].remove();
       }
     }

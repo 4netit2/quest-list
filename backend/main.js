@@ -670,10 +670,10 @@ let questManagement = {
     let questCategoryGroup = document.getElementsByClassName('quest-category-group');
 
     for (let i = 0; i < questAdded.length; i++) {
-      if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
-        questsDefeated--;
-      }
       if (questAdded[i].id === questNumber) {
+        if (questAdded[i].children[1].children[2].className === 'content-quest-done') {
+          questsDefeated--;
+        }
         questAdded[i].remove();
       }
     }
@@ -697,7 +697,7 @@ questManagement.changeQuestCategory();
 questManagement.defeatQuest();
 
 function handleQuest(className, id){
-  
+
   let category;
   let title;
   let mail = document.getElementById("session_name").value;
@@ -748,7 +748,7 @@ function handleQuest(className, id){
     ID = id;
   }
 
-  
+
   if(className.indexOf("quest-check") != -1){
     //Checks if quest is completed and grants user XP
     /*$.post('gainXP.php' ,{postMail: mail}, function(data){
@@ -770,7 +770,7 @@ function handleQuest(className, id){
     });
 
   }else if(className.indexOf("disable") != -1){
-    //Quest was disabled so add it 
+    //Quest was disabled so add it
     $.post('addQuest.php', {postCategory: category, postTitle: title.toUpperCase(), postMail: mail, postID: ID});
   }else{
     //Quest was added so remove it
@@ -778,7 +778,7 @@ function handleQuest(className, id){
       $.post('removeQuest.php', {postTitle: "none", postMail: mail, postID: ID});
     }else{
       $.post('removeQuest.php', {postTitle: title.toUpperCase(), postMail: mail, postID: ID});
-    } 
+    }
   }
-  
+
 }
