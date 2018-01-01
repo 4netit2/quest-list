@@ -21,4 +21,6 @@ $experience_needed = $user['experience_needed'];
 
 $updateDBquery = "UPDATE users SET level = '$level', experience = '$experience', experience_needed = '$experience_needed' WHERE email = '$email'";
 $mysqli->query($updateDBquery);
+
+echo json_encode(array("level" => $level, "experience" => $experience, "experience_needed" => $experience_needed));
 ?>

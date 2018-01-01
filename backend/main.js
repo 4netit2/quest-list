@@ -751,7 +751,24 @@ function handleQuest(className, id){
   
   if(className.indexOf("quest-check") != -1){
     //Checks if quest is completed and grants user XP
-    $.post('gainXP.php' ,{postMail: mail});
+    /*$.post('gainXP.php' ,{postMail: mail}, function(data){
+      alert(data.level);
+    });*/
+    $.ajax({
+        type: "POST",
+        url: "gainXP.php",
+        data: {postMail: mail},
+        dataType: 'json',
+        cache: false,
+        success: function(data)
+        {
+            let user_level = data.level;
+            let user_experience = data.experience;
+            let user_experience_needed = data.experience_needed;
+            alert(user_level + " " + user_experience + " " +user_experience_needed);
+        }
+    });
+
   }else if(className.indexOf("disable") != -1){
     //Quest was disabled so add it 
     $.post('addQuest.php', {postCategory: category, postTitle: title.toUpperCase(), postMail: mail, postID: ID});
