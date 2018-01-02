@@ -256,6 +256,14 @@ button:hover {
     margin: 0 0 20px 0;
 }
 
+.pass-input,
+.mail-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .content-sign form {
     display: flex;
     flex-direction: column;
