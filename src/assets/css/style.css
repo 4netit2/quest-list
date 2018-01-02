@@ -757,16 +757,10 @@ button:hover {
 .user-xp-bar-placeholder{
     width:70%;
     height: 20px;
-    background-color: forestgreen;
+    background-color: rgba(18, 83, 173, 0.3);
     margin-left: -50px;
     border: 3px solid #93928e;
     border-radius: 5px;
-}
-
-.user-xp-bar-placeholder-inner {
-  width: 1%;
-  height: 100%;
-  background-color: red;
 }
 
 .change-user-elements{
