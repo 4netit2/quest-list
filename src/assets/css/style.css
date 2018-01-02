@@ -261,7 +261,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .content-sign form {
