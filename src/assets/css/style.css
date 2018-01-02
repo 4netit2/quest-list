@@ -874,6 +874,17 @@ button:hover {
   .content-quest-title {
     font-size: 1em;
   }
+
+  /* MENU PAGE */
+  .content-menu-page{
+    padding: 20px 10%;
+  }
+
+  .avatar-portrait {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+  }
 }
 
 /* RESPONSIVE < 480 PX MOBILE */
@@ -968,6 +979,11 @@ button:hover {
     .content-quest-title {
       font-size: 1em;
       text-transform: lowercase;
+    }
+
+    /* MENU PAGE */
+    .content-menu-page{
+      padding: 20px 2%;
     }
 }
 
