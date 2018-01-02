@@ -9,6 +9,7 @@
     $pseudo = $user['pseudo'];
 
     $xp = ($user['experience'] / $user['experience_needed']) * 100;
+    $class = $user['class'];
     $_SESSION["someone"] = 18;
 
 ?>
@@ -268,6 +269,7 @@
       </div>
     </div>
     <input type="text" id="session_name" style="display: none" value=<?php echo $_SESSION['mail'] ?>>
+    <input type="text" id="user_class" style="display: none" value=<?php echo $class ?>>
     </div> <!-- END FULL WEBSITE MAIN PAGE -->
 
   <!-- Link to the main script -->

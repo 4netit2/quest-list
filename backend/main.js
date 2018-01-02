@@ -18,6 +18,7 @@ const CONFIRM_ADD_QUEST = document.getElementById('confirm-add-quest');
 const QUEST_USER_INPUT = document.getElementById('quest-user-input');
 const USER_LEVEL = document.getElementById('user-level');
 const USER_XP_INNER = document.getElementById('user-xp-inner');
+const USER_CLASS = document.getElementById('user_class');
 
 const QUESTS_GROUP_COURSE = document.getElementById('category-course');
 const QUESTS_GROUP_SLACK = document.getElementById('category-slack');
@@ -649,7 +650,7 @@ let questManagement = {
         elementClicked.nextSibling.children[2].className = 'content-quest-done';
         elementClicked.className = 'quest-check completed';
 
-        switch (character.class) {
+        switch (USER_CLASS.value) {
           case 'mage':
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/mage_45x45.png")'
           break;
@@ -657,6 +658,9 @@ let questManagement = {
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/rogue_45x45.png")'
           break;
           case 'warrior':
+            elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
+          break;
+          default:
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
           break;
         }
@@ -749,7 +753,6 @@ function handleQuest(className, id){
   }else{
     ID = id;
   }
-
 
   if(className.indexOf("quest-check") != -1){
     //Checks if quest is completed and grants user XP
