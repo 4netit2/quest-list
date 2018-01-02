@@ -16,9 +16,6 @@ const H3_ELT = document.querySelector('h3');
 const RELOAD_BUTTON = document.getElementById('reload-button');
 const CONFIRM_ADD_QUEST = document.getElementById('confirm-add-quest');
 const QUEST_USER_INPUT = document.getElementById('quest-user-input');
-const USER_LEVEL = document.getElementById('user-level');
-const USER_XP_INNER = document.getElementById('user-xp-inner');
-const USER_CLASS = document.getElementById('user_class');
 
 const QUESTS_GROUP_COURSE = document.getElementById('category-course');
 const QUESTS_GROUP_SLACK = document.getElementById('category-slack');
@@ -56,12 +53,12 @@ let questsDefeated = 0;
 let saveCategory = 'category-fun';
 let uniqueQuestNumber = '1';
 
-let mail = document.getElementById("session_name").value;
-let questCount;
-$.post('findQuestCount.php', {postMail: mail}, function(data){
-  questCount = data;
-});
-let customQuestCategory = "fun";
+// let mail = document.getElementById("session_name").value;
+// let questCount;
+// $.post('findQuestCount.php', {postMail: mail}, function(data){
+//   questCount = data;
+// });
+
 // Rename the menu bar and page with user pseudo
 /*H1_ELT_MENU_BAR.textContent = character.pseudo;
 H1_ELT_MENU_PAGE.textContent = character.pseudo;*/
@@ -106,7 +103,11 @@ let quests = {
   questContent: '',
   questCategory: 'category-fun',
   completed: false,
-  xp: 50
+  xp: 50,
+  debugQuest: function() {
+    console.log(this.questContent);
+    console.log(this.questCategory);
+  }
 };
 
 // Manage quests
@@ -151,6 +152,7 @@ let questManagement = {
 
         questManagement.createQuest();
         questCount++;
+        quests.debugQuest();
         QUEST_USER_INPUT.value = '';
       } else {
         QUEST_USER_INPUT.style.borderColor = 'red';
@@ -177,6 +179,7 @@ let questManagement = {
             questAdded[i].remove();
           }
         }
+        quests.debugQuest();
         questsToDo -= 1;
         H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
       }
@@ -219,6 +222,7 @@ let questManagement = {
 
         quests.questContent = 'Finish a Udacity lesson';
         quests.questCategory = 'category-course';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -252,6 +256,7 @@ let questManagement = {
 
         quests.questContent = 'Participate on a Udacity Slack Channel';
         quests.questCategory = 'category-slack';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -285,6 +290,7 @@ let questManagement = {
 
         quests.questContent = 'Help a fellow student on the Forum';
         quests.questCategory = 'category-forum';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -318,6 +324,7 @@ let questManagement = {
 
         quests.questContent = 'Add one feature on a side project';
         quests.questCategory = 'category-project';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -351,6 +358,7 @@ let questManagement = {
 
         quests.questContent = 'Complete a Code Challenge';
         quests.questCategory = 'category-challenge';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -384,6 +392,7 @@ let questManagement = {
 
         quests.questContent = 'Take time for myself';
         quests.questCategory = 'category-personal';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -417,6 +426,7 @@ let questManagement = {
 
         quests.questContent = 'Go for a walk or any activity far from the computer';
         quests.questCategory = 'category-health';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -450,6 +460,7 @@ let questManagement = {
 
         quests.questContent = 'Do my best at work';
         quests.questCategory = 'category-work';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -483,6 +494,7 @@ let questManagement = {
 
         quests.questContent = 'Take some fun time with friends of family';
         quests.questCategory = 'category-fun';
+        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -498,49 +510,41 @@ let questManagement = {
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/courses_45x45.png")';
           quests.questCategory = 'category-course';
           saveCategory = 'category-course';
-          customQuestCategory = "course";
         break;
         case 'quest-category-item category-slack':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/Slack_45x45.png")';
           quests.questCategory = 'category-slack';
           saveCategory = 'category-slack';
-          customQuestCategory = "slack";
         break;
         case 'quest-category-item category-forum':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/forum_45x45.png")';
           quests.questCategory = 'category-forum';
           saveCategory = 'category-forum';
-          customQuestCategory = "forum";
         break;
         case 'quest-category-item category-project':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/project_45x45.png")';
           quests.questCategory = 'category-project';
           saveCategory = 'category-project';
-          customQuestCategory = "project";
         break;
         case 'quest-category-item category-challenge':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/challenge_45x45.png")';
           quests.questCategory = 'category-challenge';
           saveCategory = 'category-challenge';
-          customQuestCategory = "challenge";
         break;
         case 'quest-category-item category-personal':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/home_45x45.png")';
           quests.questCategory = 'category-personal';
           saveCategory = 'category-personal';
-          customQuestCategory = "personal";
         break;
         case 'quest-category-item category-health':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/health_45x45.png")';
           quests.questCategory = 'category-health';
           saveCategory = 'category-health';
-          customQuestCategory = "health";
         break;
         case 'quest-category-item category-work':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/work_45x45.png")';
           quests.questCategory = 'category-work';
           saveCategory = 'category-work';
-          customQuestCategory = "work";
         break;
         case 'quest-category-item category-fun':
           ADD_QUEST_ITEM.style.background = 'url("http://maeva-contact.com/questlist/assets/images/icons/fun_45x45.png")';
@@ -550,6 +554,7 @@ let questManagement = {
       }
       ADD_QUEST_ITEM.style.backgroundSize = 'cover';
       CHOOSE_CATEGORY_POPUP.className = 'choose-category-popup hidden';
+      quests.debugQuest();
     });
   },
   createQuest: function() {
@@ -564,7 +569,6 @@ let questManagement = {
       contentQuestGroup.className = 'content-quest-group quest-added ' + uniqueQuestNumber;
       contentQuestGroup.id = uniqueQuestNumber;
       questCheck.className = 'quest-check';
-      questCheck.setAttribute("onclick", "handleQuest(this.className, this.id);");
       contentQuestTitleGroup.className = 'content-quest-title-group';
       contentQuestTitle.className = 'content-quest-title';
       contentQuestTitle.textContent = quests.questContent;
@@ -634,7 +638,7 @@ let questManagement = {
         elementClicked.nextSibling.children[2].className = 'content-quest-done';
         elementClicked.className = 'quest-check completed';
 
-        switch (USER_CLASS.value) {
+        switch (character.class) {
           case 'mage':
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/mage_45x45.png")'
           break;
@@ -646,8 +650,9 @@ let questManagement = {
           break;
           default:
             elementClicked.nextSibling.children[2].children[0].style.background = 'url("http://maeva-contact.com/questlist/assets/images/classes/warrior_45x45.png")'
-          break;
+            break;
         }
+        console.log(character.class);
         character.experience += 50;
         questsDefeated += 1;
         H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
@@ -667,6 +672,8 @@ let questManagement = {
         questAdded[i].remove();
       }
     }
+    console.log(questNumber);
+    quests.debugQuest();
     questsToDo -= 1;
     H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
 
@@ -692,68 +699,51 @@ function handleQuest(className, id){
   let ID = 0;
 
   if(id.indexOf("quest") != -1){
-    category = customQuestCategory;
+    category = "custom";
     title = document.getElementById("quest-user-input").value;
     ID = questCount;
+    console.log(title.toUpperCase());
   }else if(id.indexOf("course") != -1){
     category = "course";
     title = "FINISH A UDACITY LESSON";
+    console.log(title);
   }else if(id.indexOf("slack") != -1){
     category = "slack";
     title = "PARTICIPATE ON A UDACITY SLACK CHANNEL";
+    console.log(title);
   }else if(id.indexOf("forum") != -1){
     category = "forum";
     title = "HELP A FELLOW STUDENT ON THE FORUM";
+    console.log(title);
   }else if(id.indexOf("project") != -1){
     category = "project";
     title = "ADD ONE FEATURE ON A SIDE PROJECT";
+    console.log(title);
   }else if(id.indexOf("challenge") != -1){
     category = "challenge";
     title = "COMPLETE A CODE CHALLENGE";
+    console.log(title);
   }else if(id.indexOf("personal") != -1){
     category = "personal";
     title = "TAKE TIME FOR MYSELF";
+    console.log(title);
   }else if(id.indexOf("health") != -1){
     category = "health";
     title = "GO FOR A WALK OR ANY ACTIVITY FAR FROM THE COMPUTER";
+    console.log(title);
   }else if(id.indexOf("work") != -1){
     category = "work";
     title = "DO MY BEST AT WORK";
+    console.log(title);
   }else if(id.indexOf("fun") != -1){
     category = "fun";
     title = "TAKE SOME FUN TIME WITH FRIENDS OF FAMILY";
+    console.log(title);
   }else{
     ID = id;
   }
 
-  if(className.indexOf("quest-check") != -1){
-    //Checks if quest is completed and grants user XP
-    /*$.post('gainXP.php' ,{postMail: mail}, function(data){
-      alert(data.level);
-    });*/
-    $.ajax({
-        type: "POST",
-        url: "gainXP.php",
-        data: {postMail: mail},
-        dataType: 'json',
-        cache: false,
-        success: function(data)
-        {
-            let user_level = data.level;
-            let user_experience = data.experience;
-            let user_experience_needed = data.experience_needed;
-            let user_xp = (user_experience / user_experience_needed) * 100;
-            // alert(user_level + " " + user_experience + " " +user_experience_needed);
-            USER_LEVEL.textContent = 'Level: ' + user_level;
-            USER_XP_INNER.style.width = user_xp + '%';
-
-            if (USER_XP_INNER.style.width === '100%') {
-              USER_XP_INNER.style.width = '0%';
-            }
-        }
-    });
-
-  }else if(className.indexOf("disable") != -1){
+  if(className.indexOf("disable") != -1){
     //Quest was disabled so add it
     $.post('addQuest.php', {postCategory: category, postTitle: title.toUpperCase(), postMail: mail, postID: ID});
   }else{
