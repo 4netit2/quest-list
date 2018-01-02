@@ -154,7 +154,7 @@
     <div class="content-add-quest-page hidden" id="content-add-quest-page">
         <div class="popup-close-button" id="close-add-quest-btn"><i class="fas fa-times"></i></div>
         <div class="add-quest-input-group">
-            <form action="">
+            <form action="" onSubmit="return false;">
               <input type="text" id="quest-user-input" placeholder="CREATE NEW QUEST...">
             </form>
             <div class="choose-category-quest" id="add-quest-category">
