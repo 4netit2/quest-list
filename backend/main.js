@@ -769,7 +769,7 @@ function handleQuest(className, id){
             let user_experience_needed = data.experience_needed;
             let user_xp = (user_experience / user_experience_needed) * 100;
             // alert(user_level + " " + user_experience + " " +user_experience_needed);
-            USER_LEVEL.textContent += ' user_level';
+            USER_LEVEL.textContent = 'Level: ' + user_level;
             USER_XP_INNER.style.width = user_xp + '%';
 
             if (USER_XP_INNER.style.width === '100%') {
