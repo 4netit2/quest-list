@@ -709,7 +709,7 @@ button:hover {
     height:100%;
     z-index:4;
     top:0;
-    padding: 20px 10%;
+    padding: 20px 20%;
 }
 
 .menu-header{
@@ -785,11 +785,15 @@ button:hover {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .lougout-btn:hover {
     cursor: pointer;
-    color: #5d1111;
+    background: #5d1111;
+    color: #e5af29;
+    border-color: #e5af29;
 }
 
 

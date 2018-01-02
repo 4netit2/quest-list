@@ -244,12 +244,7 @@
               <div class="user-xp-text">xp</div>
               <div class="user-xp-bar-placeholder"><div class="user-xp-bar-placeholder-inner"></div></div>
           </div>
-          <div class="change-user-elements">
-              <div class="change-pseudo">change pseudo</div>
-              <div class="change-password">change password</div>
-              <div class="change-progression">reset progression</div>
-          </div>
-          <button class="lougout-btn">logout</button>
+          <a href="index.php" class="lougout-btn">logout</a>
        </div>
 
     </div> <!-- END CONTENT MENU PAGE -->
