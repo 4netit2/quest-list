@@ -26,6 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <link rel="icon" type="image/png" href="assets/images/icons/logo_quest_list.png">
 
     <!-- Style needed for the inner div of the XP bar. Needs to be set here in order to get data from the PHP  -->
     <style>
