@@ -763,6 +763,12 @@ button:hover {
     border-radius: 5px;
 }
 
+.user-xp-bar-placeholder-inner {
+  width: 1%;
+  height: 100%;
+  background-color: red;
+}
+
 .change-user-elements{
     margin: 40px auto;
     text-align: center;

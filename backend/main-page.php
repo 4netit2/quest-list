@@ -27,13 +27,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
 
     <!-- Style needed for the inner div of the XP bar. Needs to be set here in order to get data from the PHP  -->
-    <style>
+    <!-- <style>
         .user-xp-bar-placeholder-inner{
             width:<?php echo $xp ?>%;
             height: 13.5px;
             background-color: red;
         }
-    </style>
+    </style> -->
   </head>
   <body>
     <!-- OVERLAY -->
@@ -239,10 +239,11 @@
           <div class="avatar-portrait">
               <img src=<?php echo $user['image'] ?> alt="Avatar" id="main-avatar">
           </div>
-          <div class="user-level">level: <?php echo $user['level'] ?></div>
+          <!-- <div class="user-level">level: <?php echo $user['level'] ?></div> -->
+          <div class="user-level" id="user-level">level: </div>
           <div class="user-xp-group">
               <div class="user-xp-text">xp</div>
-              <div class="user-xp-bar-placeholder"><div class="user-xp-bar-placeholder-inner"></div></div>
+              <div class="user-xp-bar-placeholder"><div class="user-xp-bar-placeholder-inner" id="user-xp-inner"></div></div>
           </div>
           <a href="index.php" class="lougout-btn">logout</a>
        </div>

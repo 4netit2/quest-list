@@ -16,6 +16,8 @@ const H3_ELT = document.querySelector('h3');
 const RELOAD_BUTTON = document.getElementById('reload-button');
 const CONFIRM_ADD_QUEST = document.getElementById('confirm-add-quest');
 const QUEST_USER_INPUT = document.getElementById('quest-user-input');
+const USER_LEVEL = document.getElementById('user-level');
+const USER_XP_INNER = document.getElementById('user-xp-inner');
 
 const QUESTS_GROUP_COURSE = document.getElementById('category-course');
 const QUESTS_GROUP_SLACK = document.getElementById('category-slack');
@@ -765,7 +767,14 @@ function handleQuest(className, id){
             let user_level = data.level;
             let user_experience = data.experience;
             let user_experience_needed = data.experience_needed;
-            alert(user_level + " " + user_experience + " " +user_experience_needed);
+            let user_xp = (user_experience / user_experience_needed) * 100;
+            // alert(user_level + " " + user_experience + " " +user_experience_needed);
+            USER_LEVEL.textContent += ' user_level';
+            USER_XP_INNER.style.width = user_xp + '%';
+
+            if (USER_XP_INNER.style.width === '100%') {
+              USER_XP_INNER.style.width = '0%';
+            }
         }
     });
 
