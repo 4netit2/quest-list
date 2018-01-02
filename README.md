@@ -32,7 +32,7 @@ The project is still in development, you can contribute by making a pull request
 
 ## Contributors
 
-- [David PELLET](http://davidpellet-art.com/): Drawings
-- [Maeva NGUYEN ANH PHUONG](http://maeva-contact.com/): UI / JavaScript
-- Sarah FROMENT: HTML / CSS
--
+* Sarah FROMENT: HTML / CSS
+* Apostolis ICHTSIS: PHP / MySQL / Database
+* [David PELLET](http://davidpellet-art.com/): Drawings
+* [Maeva NGUYEN ANH PHUONG](http://maeva-contact.com/): UI / JavaScript
