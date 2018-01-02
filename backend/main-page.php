@@ -253,19 +253,19 @@
     <!-- CHOOSE CATEGORY POPUP -->
     <div class="choose-category-popup hidden" id="choose-category-popup">
       <div class="choose-category-row">
-        <div class="quest-category-item category-course"></div>
-        <div class="quest-category-item category-slack"></div>
-        <div class="quest-category-item category-forum"></div>
+        <div class="quest-category-item category-course" title="COURSE"></div>
+        <div class="quest-category-item category-slack" title="SLACK"></div>
+        <div class="quest-category-item category-forum" title="FORUM"></div>
       </div>
       <div class="choose-category-row">
-        <div class="quest-category-item category-project"></div>
-        <div class="quest-category-item category-challenge"></div>
-        <div class="quest-category-item category-personal"></div>
+        <div class="quest-category-item category-project" title="PROJECT"></div>
+        <div class="quest-category-item category-challenge" title="CHALLENGE"></div>
+        <div class="quest-category-item category-personal" title="PERSONAL"></div>
       </div>
       <div class="choose-category-row">
-        <div class="quest-category-item category-health"></div>
-        <div class="quest-category-item category-work"></div>
-        <div class="quest-category-item category-fun"></div>
+        <div class="quest-category-item category-health" title="HEALTH"></div>
+        <div class="quest-category-item category-work" title="WORK"></div>
+        <div class="quest-category-item category-fun" title="FUN"></div>
       </div>
     </div>
     <input type="text" id="session_name" style="display: none" value=<?php echo $_SESSION['mail'] ?>>
