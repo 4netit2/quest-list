@@ -12,13 +12,6 @@ let character = {
   // Get a class name
   getClass: function(className) {
     this.class = className;
-  },
-  debugObject: function() {
-    console.log(this.pseudo);
-    console.log(this.avatar);
-    console.log(this.class);
-    console.log(this.level);
-    console.log(this.experience);
   }
 }
 
@@ -100,7 +93,6 @@ let characterCreation = {
       }
       // Set the border color to the selected avatar
       elementClicked.style.borderColor = '#e5af29';
-      character.debugObject();
     });
   },
   getClass: function() {
@@ -131,7 +123,6 @@ let characterCreation = {
       }
       // Set the border color to the selected class
       elementClicked.style.borderColor = '#e5af29';
-      character.debugObject();
     });
   },
   getPseudo: function() {
@@ -142,7 +133,6 @@ let characterCreation = {
       character.pseudo = this.value;
       MAIN_PSEUDO.textContent = this.value;
     });
-    character.debugObject();
   }
 };
 

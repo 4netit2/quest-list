@@ -106,11 +106,7 @@ let quests = {
   questContent: '',
   questCategory: 'category-fun',
   completed: false,
-  xp: 50,
-  debugQuest: function() {
-    console.log(this.questContent);
-    console.log(this.questCategory);
-  }
+  xp: 50
 };
 
 // Manage quests
@@ -155,7 +151,6 @@ let questManagement = {
 
         questManagement.createQuest();
         questCount++;
-        quests.debugQuest();
         QUEST_USER_INPUT.value = '';
       } else {
         QUEST_USER_INPUT.style.borderColor = 'red';
@@ -182,7 +177,6 @@ let questManagement = {
             questAdded[i].remove();
           }
         }
-        quests.debugQuest();
         questsToDo -= 1;
         H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
       }
@@ -225,7 +219,6 @@ let questManagement = {
 
         quests.questContent = 'Finish a Udacity lesson';
         quests.questCategory = 'category-course';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -259,7 +252,6 @@ let questManagement = {
 
         quests.questContent = 'Participate on a Udacity Slack Channel';
         quests.questCategory = 'category-slack';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -293,7 +285,6 @@ let questManagement = {
 
         quests.questContent = 'Help a fellow student on the Forum';
         quests.questCategory = 'category-forum';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -327,7 +318,6 @@ let questManagement = {
 
         quests.questContent = 'Add one feature on a side project';
         quests.questCategory = 'category-project';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -361,7 +351,6 @@ let questManagement = {
 
         quests.questContent = 'Complete a Code Challenge';
         quests.questCategory = 'category-challenge';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -395,7 +384,6 @@ let questManagement = {
 
         quests.questContent = 'Take time for myself';
         quests.questCategory = 'category-personal';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -429,7 +417,6 @@ let questManagement = {
 
         quests.questContent = 'Go for a walk or any activity far from the computer';
         quests.questCategory = 'category-health';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -463,7 +450,6 @@ let questManagement = {
 
         quests.questContent = 'Do my best at work';
         quests.questCategory = 'category-work';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -497,7 +483,6 @@ let questManagement = {
 
         quests.questContent = 'Take some fun time with friends of family';
         quests.questCategory = 'category-fun';
-        console.log(quests.questContent);
         questManagement.deleteQuest(numberQuest.className);
         quests.questCategory = 'category-fun';
         numberQuest.remove();
@@ -565,7 +550,6 @@ let questManagement = {
       }
       ADD_QUEST_ITEM.style.backgroundSize = 'cover';
       CHOOSE_CATEGORY_POPUP.className = 'choose-category-popup hidden';
-      quests.debugQuest();
     });
   },
   createQuest: function() {
@@ -683,8 +667,6 @@ let questManagement = {
         questAdded[i].remove();
       }
     }
-    console.log(questNumber);
-    quests.debugQuest();
     questsToDo -= 1;
     H3_ELT.textContent = 'Quests Defeated ' + questsDefeated + '/' + questsToDo;
 
@@ -713,43 +695,33 @@ function handleQuest(className, id){
     category = customQuestCategory;
     title = document.getElementById("quest-user-input").value;
     ID = questCount;
-    console.log(title.toUpperCase());
   }else if(id.indexOf("course") != -1){
     category = "course";
     title = "FINISH A UDACITY LESSON";
-    console.log(title);
   }else if(id.indexOf("slack") != -1){
     category = "slack";
     title = "PARTICIPATE ON A UDACITY SLACK CHANNEL";
-    console.log(title);
   }else if(id.indexOf("forum") != -1){
     category = "forum";
     title = "HELP A FELLOW STUDENT ON THE FORUM";
-    console.log(title);
   }else if(id.indexOf("project") != -1){
     category = "project";
     title = "ADD ONE FEATURE ON A SIDE PROJECT";
-    console.log(title);
   }else if(id.indexOf("challenge") != -1){
     category = "challenge";
     title = "COMPLETE A CODE CHALLENGE";
-    console.log(title);
   }else if(id.indexOf("personal") != -1){
     category = "personal";
     title = "TAKE TIME FOR MYSELF";
-    console.log(title);
   }else if(id.indexOf("health") != -1){
     category = "health";
     title = "GO FOR A WALK OR ANY ACTIVITY FAR FROM THE COMPUTER";
-    console.log(title);
   }else if(id.indexOf("work") != -1){
     category = "work";
     title = "DO MY BEST AT WORK";
-    console.log(title);
   }else if(id.indexOf("fun") != -1){
     category = "fun";
     title = "TAKE SOME FUN TIME WITH FRIENDS OF FAMILY";
-    console.log(title);
   }else{
     ID = id;
   }
